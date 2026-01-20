@@ -229,19 +229,21 @@ body {
 
 .screenshot-gallery h2 {
     font-size: 36px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .screenshots {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 2rem;
     padding: 2rem 0;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .screenshot-item {
-    max-width: 300px;
+    width: 280px;
+    flex-shrink: 0;
 }
 
 .screenshot-item img {
@@ -472,11 +474,13 @@ body {
     }
 
     .screenshots {
-        padding: 1rem 0;
+        flex-direction: column;
+        align-items: center;
     }
 
     .screenshot-item {
-        flex: 0 0 250px;
+        width: 100%;
+        max-width: 300px;
     }
 
     .use-cases {
