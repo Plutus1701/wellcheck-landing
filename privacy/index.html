@@ -4,143 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WellCheck - Privacy Policy</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            color: #333;
-        }
-        h1 { color: #007AFF; }
-        h2 { color: #555; margin-top: 30px; }
-        .highlight {
-            background: #e3f2fd;
-            border-left: 4px solid #007AFF;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .important {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #007AFF;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        ul {
-            margin: 10px 0;
-        }
-    </style>
+    <meta name="description" content="WellCheck privacy policy - minimal data collection, local storage first.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="/" class="back-link">← Back to Home</a>
-    
-    <h1>WellCheck Privacy Policy</h1>
-    <p><strong>Last Updated:</strong> January 2026</p>
+    <div class="legal-container fade-in-up">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <h1>Privacy Policy</h1>
+        <p style="color: var(--text-secondary);"><strong>Last Updated:</strong> January 2026</p>
 
-    <div class="highlight">
-        <strong>Privacy-First Design:</strong> WellCheck stores the absolute minimum data needed to provide automated emergency alerts. Your personal information (names, photos, settings) stays on your device.
-    </div>
+        <div class="highlight">
+            <strong>Privacy-First Design:</strong> WellCheck stores the absolute minimum data needed to provide automated emergency alerts. Your personal information (names, photos, settings) stays on your device.
+        </div>
 
-    <h2>Data Stored on Your Device (Local Only)</h2>
-    <p>The following data never leaves your iPhone:</p>
-    <ul>
-        <li><strong>Contact names</strong> and photos</li>
-        <li><strong>Your name</strong> and personal information</li>
-        <li><strong>Check-in history</strong> and app settings</li>
-        <li><strong>Alarm schedules</strong> and preferences</li>
-        <li><strong>Emergency notes</strong> and custom messages</li>
-    </ul>
-
-    <h2>Minimal Backend Storage (Required for SMS)</h2>
-    <div class="important">
-        <p>To send automated emergency SMS alerts, WellCheck stores minimal data on secure servers:</p>
+        <h2>Data Stored on Your Device (Local Only)</h2>
+        <p>The following data never leaves your iPhone:</p>
         <ul>
-            <li><strong>Phone numbers only</strong> (your emergency contacts' numbers)</li>
-            <li><strong>Opt-out records</strong> (phone numbers that opted out - legal requirement)</li>
-            <li><strong>Device notification token</strong> (to notify you if a contact opts out)</li>
+            <li><strong>Contact names</strong> and photos</li>
+            <li><strong>Your name</strong> and personal information</li>
+            <li><strong>Check-in history</strong> and app settings</li>
+            <li><strong>Alarm schedules</strong> and preferences</li>
+            <li><strong>Emergency notes</strong> and custom messages</li>
         </ul>
-        <p><strong>What we DON'T store:</strong> Names, photos, addresses, locations, usage patterns, or any other personal information.</p>
+
+        <h2>Minimal Backend Storage (Required for SMS)</h2>
+        <div class="important">
+            <p>To send automated emergency SMS alerts, WellCheck stores minimal data on secure servers:</p>
+            <ul>
+                <li><strong>Phone numbers only</strong> (your emergency contacts' numbers)</li>
+                <li><strong>Opt-out records</strong> (phone numbers that opted out - legal requirement)</li>
+                <li><strong>Device notification token</strong> (to notify you if a contact opts out)</li>
+            </ul>
+            <p><strong>What we DON'T store:</strong> Names, photos, addresses, locations, usage patterns, or any other personal information.</p>
+        </div>
+
+        <h2>Why Backend Storage is Necessary</h2>
+        <p><strong>iOS Limitation:</strong> Apple doesn't allow apps to send automated SMS messages from your device. To provide emergency alerts, we must use a third-party SMS service (Twilio).</p>
+        
+        <p><strong>Legal Requirement:</strong> US law (TCPA) requires us to permanently honor opt-out requests, which means storing opt-out records.</p>
+        
+        <p><strong>Safety Feature:</strong> We notify you if an emergency contact opts out so you can add a replacement.</p>
+
+        <h2>Third-Party Services</h2>
+        
+        <p><strong>Twilio (SMS Delivery):</strong> Used only to send emergency alerts to your contacts. Twilio processes phone numbers and message content but does not store or use this data for any other purpose.</p>
+        
+        <p><strong>Firebase (Minimal Storage):</strong> Google's Firebase securely stores the phone numbers and opt-out records. Data is encrypted in transit and at rest.</p>
+        
+        <p><strong>No Analytics or Tracking:</strong> We don't use analytics services, advertising networks, or any tracking tools.</p>
+
+        <h2>Permissions Required</h2>
+        
+        <p><strong>Contacts:</strong> To select trusted adults from your existing contacts</p>
+        
+        <p><strong>Photos (Optional):</strong> To choose custom photos for contacts</p>
+        
+        <p><strong>Notifications:</strong> For check-in reminders and emergency alerts</p>
+
+        <p>You can manage permissions in: <strong>Settings → Privacy → WellCheck</strong></p>
+
+        <h2>Your Data Rights</h2>
+        <ul>
+            <li><strong>View stored phone numbers:</strong> Contact us at support@wellcheck.app</li>
+            <li><strong>Delete backend data:</strong> Delete your account in Settings (removes all phone numbers from our servers)</li>
+            <li><strong>Delete local data:</strong> Delete the WellCheck app</li>
+            <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts</li>
+        </ul>
+
+        <h2>Data Security</h2>
+        <ul>
+            <li>All network communication uses HTTPS encryption</li>
+            <li>Backend data is encrypted at rest on Firebase servers</li>
+            <li>Phone numbers are stored in hashed format where possible</li>
+            <li>No employee access to user data</li>
+            <li>Regular security audits</li>
+        </ul>
+
+        <h2>Children's Privacy</h2>
+        <p>WellCheck can be used by children for emergency calling but must be set up by an adult. No personal information about children is collected or stored on our servers.</p>
+
+        <h2>Data Retention</h2>
+        <ul>
+            <li><strong>Phone numbers:</strong> Stored only while you have active contacts in the app</li>
+            <li><strong>Opt-out records:</strong> Stored permanently (legal requirement)</li>
+            <li><strong>Device tokens:</strong> Deleted when you delete your account</li>
+        </ul>
+
+        <h2>Your Choices</h2>
+        <p>If you prefer complete privacy with no backend storage, you can:</p>
+        <ul>
+            <li>Use WellCheck without SMS alerts (emergency calling still works)</li>
+            <li>Manually send messages instead of automated alerts</li>
+        </ul>
+
+        <h2>Changes to This Policy</h2>
+        <p>We'll notify you of any significant changes through the app and update the "Last Updated" date above.</p>
+
+        <h2>Contact Us</h2>
+        <p>Questions about privacy? Email: <a href="mailto:support@wellcheck.app" style="color: var(--accent-green);">support@wellcheck.app</a></p>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+        <p style="color: var(--text-secondary); font-size: 14px;">
+            By using WellCheck, you agree to this privacy policy.<br>
+            This policy complies with Apple App Store requirements, COPPA, CCPA, GDPR, and TCPA.
+        </p>
     </div>
 
-    <h2>Why Backend Storage is Necessary</h2>
-    <p><strong>iOS Limitation:</strong> Apple doesn't allow apps to send automated SMS messages from your device. To provide emergency alerts, we must use a third-party SMS service (Twilio).</p>
-    
-    <p><strong>Legal Requirement:</strong> US law (TCPA) requires us to permanently honor opt-out requests, which means storing opt-out records.</p>
-    
-    <p><strong>Safety Feature:</strong> We notify you if an emergency contact opts out so you can add a replacement.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/consent">SMS Consent</a>
+            <a href="mailto:support@wellcheck.app">Support</a>
+        </div>
+        <p class="copyright">© 2026 WellCheck. All rights reserved.</p>
+    </footer>
 
-    <h2>Third-Party Services</h2>
-    
-    <p><strong>Twilio (SMS Delivery):</strong> Used only to send emergency alerts to your contacts. Twilio processes phone numbers and message content but does not store or use this data for any other purpose.</p>
-    
-    <p><strong>Firebase (Minimal Storage):</strong> Google's Firebase securely stores the phone numbers and opt-out records. Data is encrypted in transit and at rest.</p>
-    
-    <p><strong>No Analytics or Tracking:</strong> We don't use analytics services, advertising networks, or any tracking tools.</p>
-
-    <h2>Permissions Required</h2>
-    
-    <p><strong>Contacts:</strong> To select trusted adults from your existing contacts</p>
-    
-    <p><strong>Photos (Optional):</strong> To choose custom photos for contacts</p>
-    
-    <p><strong>Notifications:</strong> For check-in reminders and emergency alerts</p>
-
-    <p>You can manage permissions in: <strong>Settings → Privacy → WellCheck</strong></p>
-
-    <h2>Your Data Rights</h2>
-    <ul>
-        <li><strong>View stored phone numbers:</strong> Contact us at support@wellcheck.app</li>
-        <li><strong>Delete backend data:</strong> Delete your account in Settings (removes all phone numbers from our servers)</li>
-        <li><strong>Delete local data:</strong> Delete the WellCheck app</li>
-        <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts</li>
-    </ul>
-
-    <h2>Data Security</h2>
-    <ul>
-        <li>All network communication uses HTTPS encryption</li>
-        <li>Backend data is encrypted at rest on Firebase servers</li>
-        <li>Phone numbers are stored in hashed format where possible</li>
-        <li>No employee access to user data</li>
-        <li>Regular security audits</li>
-    </ul>
-
-    <h2>Children's Privacy</h2>
-    <p>WellCheck can be used by children for emergency calling but must be set up by an adult. No personal information about children is collected or stored on our servers.</p>
-
-    <h2>Data Retention</h2>
-    <ul>
-        <li><strong>Phone numbers:</strong> Stored only while you have active contacts in the app</li>
-        <li><strong>Opt-out records:</strong> Stored permanently (legal requirement)</li>
-        <li><strong>Device tokens:</strong> Deleted when you delete your account</li>
-    </ul>
-
-    <h2>Your Choices</h2>
-    <p>If you prefer complete privacy with no backend storage, you can:</p>
-    <ul>
-        <li>Use WellCheck without SMS alerts (emergency calling still works)</li>
-        <li>Manually send messages instead of automated alerts</li>
-    </ul>
-
-    <h2>Changes to This Policy</h2>
-    <p>We'll notify you of any significant changes through the app and update the "Last Updated" date above.</p>
-
-    <h2>Contact Us</h2>
-    <p>Questions about privacy? Email: <a href="mailto:support@wellcheck.app">support@wellcheck.app</a></p>
-
-    <hr style="margin: 40px 0;">
-    <p style="color: #666; font-size: 14px;">
-        By using WellCheck, you agree to this privacy policy.<br>
-        This policy complies with Apple App Store requirements, COPPA, CCPA, GDPR, and TCPA.
-    </p>
+    <!-- Navigation Script -->
+    <script src="nav.js"></script>
 </body>
 </html>
