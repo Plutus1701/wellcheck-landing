@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellCheck - TestFlight Beta Testing</title>
+    <meta name="description" content="Instructions for WellCheck beta testers.">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="legal-container fade-in-up">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <h1>TestFlight Beta Testing Instructions</h1>
+        <p style="color: var(--accent-green); font-size: 18px;">Welcome Beta Testers! 👋</p>
+        <p>Thank you for helping test WellCheck before public launch. Your feedback will directly shape the final product.</p>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>🧒 For Families with Children</h2>
+
+        <h3>What to Test</h3>
+        
+        <p><strong>Setup (Parent)</strong></p>
+        <ol style="color: var(--text-secondary); line-height: 2;">
+            <li>Add 3-5 trusted adults from your contacts</li>
+            <li><strong style="color: var(--accent-green);">IMPORTANT:</strong> Verify each contact receives intro text from WellCheck</li>
+            <li>Set check-in interval (try 1 hour for testing)</li>
+            <li>Set grace period (5-10 minutes)</li>
+            <li>Add your full name and phone number in Settings</li>
+            <li>Test Practice Mode with your child first</li>
+        </ol>
+
+        <p><strong>With Your Child (Ages 2-8)</strong></p>
+        <div class="highlight">
+            <p><strong>1. Practice Mode Test:</strong></p>
+            <ul>
+                <li>Show them the emergency calling screen</li>
+                <li>Let them tap family photos</li>
+                <li>Watch the 5-second auto-advance to next contact</li>
+                <li>Note any confusion points</li>
+            </ul>
+
+            <p><strong>2. Emergency Mode Test:</strong></p>
+            <ul>
+                <li>Activate via "Open Emergency Calling"</li>
+                <li>Have child tap first contact</li>
+                <li>Watch if they wait for next contact (auto-appears)</li>
+                <li>See if they can navigate alone</li>
+            </ul>
+
+            <p><strong>3. Night Mode Test:</strong></p>
+            <ul>
+                <li>Activate before bedtime</li>
+                <li>Check if red clock is readable</li>
+                <li>Try having child exit (requires Face ID)</li>
+                <li>Verify they can't accidentally exit</li>
+            </ul>
+        </div>
+
+        <h3>What We're Looking For</h3>
+        <ul>
+            <li>✅ Do kids instinctively tap the photos?</li>
+            <li>✅ Do they understand to wait 5 seconds for next contact?</li>
+            <li>✅ Is anything confusing or scary?</li>
+            <li>✅ Can they navigate without help?</li>
+            <li>⚠️ Any way a child could get stuck?</li>
+        </ul>
+
+        <h3>Known Limitations (Please Don't Report)</h3>
+        <ul>
+            <li><strong>Lock screen:</strong> App won't launch from locked phone (iOS restriction)</li>
+            <li><strong>Silent mode:</strong> No sound if phone is on silent (waiting on Apple approval)</li>
+        </ul>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>👴 For Adults/Elderly Users (No Kids)</h2>
+
+        <h3>What to Test</h3>
+
+        <p><strong>Setup</strong></p>
+        <ol style="color: var(--text-secondary); line-height: 2;">
+            <li>Add your emergency contacts (family, friends, neighbors)</li>
+            <li><strong style="color: var(--accent-green);">IMPORTANT:</strong> Ask contacts if they received intro text from WellCheck</li>
+            <li>Set realistic check-in interval (4-12 hours)</li>
+            <li>Set first check-in time (morning routine)</li>
+            <li>Set last check-in time (bedtime)</li>
+        </ol>
+
+        <div class="highlight">
+            <p><strong>Check-In System</strong></p>
+            
+            <p><strong>1. Daily Routine:</strong></p>
+            <ul>
+                <li>Tap "Check In" when you wake up</li>
+                <li>Verify notification arrives on time</li>
+                <li>Test grace period (intentionally miss one)</li>
+                <li>Confirm automated SMS sent to contacts</li>
+            </ul>
+
+            <p><strong>2. Emergency Activation:</strong></p>
+            <ul>
+                <li>Let timer expire completely</li>
+                <li>Wait through grace period</li>
+                <li><strong>Ask your contacts:</strong> Did they receive emergency SMS?</li>
+                <li><strong>Ask your contacts:</strong> Was the message clear?</li>
+                <li>Test emergency calling interface</li>
+            </ul>
+
+            <p><strong>3. Night Mode:</strong></p>
+            <ul>
+                <li>Activate before bed</li>
+                <li>Does it auto-activate at bedtime?</li>
+                <li>Can you exit easily in morning?</li>
+                <li>Red clock helpful or annoying?</li>
+            </ul>
+        </div>
+
+        <h3>What We're Looking For</h3>
+        <ul>
+            <li>✅ Is check-in timing reliable?</li>
+            <li>✅ Are notifications clear and timely?</li>
+            <li>✅ Did contacts receive automated SMS alerts?</li>
+            <li>✅ Would your contacts understand the SMS?</li>
+            <li>✅ Is grace period duration right? (too short/long?)</li>
+            <li>⚠️ Any false alarms?</li>
+            <li>⚠️ Any way to miss real emergencies?</li>
+        </ul>
+
+        <h3>Known Limitations (Please Don't Report)</h3>
+        <ul>
+            <li><strong>Lock screen:</strong> Must unlock phone to tap notification</li>
+            <li><strong>Background limits:</strong> iOS may delay notifications if battery low</li>
+        </ul>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>🔔 CRITICAL: Test Contact Opt-Out Notifications</h2>
+
+        <div class="critical">
+            <p><strong>This is essential to test:</strong></p>
+
+            <p><strong>1. Have a contact opt-out:</strong></p>
+            <ul>
+                <li>Ask one of your contacts to reply "STOP" to the WellCheck intro message</li>
+            </ul>
+
+            <p><strong>2. What should happen:</strong></p>
+            <ul>
+                <li>You should get a push notification</li>
+                <li>Contact should be marked as opted-out in app</li>
+                <li>You should see a warning about opted-out contact</li>
+            </ul>
+
+            <p><strong>3. Please report if:</strong></p>
+            <ul>
+                <li>❌ You don't get notified when contact opts out</li>
+                <li>❌ App doesn't show opted-out status</li>
+                <li>❌ No warning appears</li>
+            </ul>
+
+            <p><strong>4. Re-opt-in test:</strong></p>
+            <ul>
+                <li>Have contact reply "START" to re-subscribe</li>
+                <li>Warning should disappear</li>
+            </ul>
+        </div>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>📲 Test Twilio Integration</h2>
+
+        <p><strong>Ask your emergency contacts to verify:</strong></p>
+
+        <h3>When You Add Them</h3>
+        <ul>
+            <li>✅ Did they receive an intro text from WellCheck?</li>
+            <li>✅ Was the message clear about what WellCheck is?</li>
+            <li>✅ Did it include your name?</li>
+        </ul>
+
+        <h3>During Emergency Test</h3>
+        <ul>
+            <li>✅ Did they receive emergency SMS automatically?</li>
+            <li>✅ Did SMS include your name and phone number?</li>
+            <li>✅ Was timing of SMS correct?</li>
+            <li>✅ Did they receive second alert after 15 minutes?</li>
+        </ul>
+
+        <h3>Opt-Out Testing</h3>
+        <ul>
+            <li>✅ Does "STOP" work to opt-out?</li>
+            <li>✅ Do they get confirmation message?</li>
+            <li>✅ Does "START" work to re-subscribe?</li>
+        </ul>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>🐛 What to Report as Bugs</h2>
+
+        <div class="critical">
+            <p><strong>Critical Issues:</strong></p>
+            <ul>
+                <li>App crashes</li>
+                <li>Timer stops working</li>
+                <li>Notifications never arrive</li>
+                <li>Can't add contacts</li>
+                <li><strong>Contacts don't receive Twilio intro message</strong></li>
+                <li><strong>No SMS alerts sent during emergency</strong></li>
+                <li><strong>Not notified when contact opts out</strong></li>
+                <li>Can't make calls from emergency mode</li>
+                <li>Settings don't save</li>
+                <li><strong>Features turn off without notification</strong></li>
+            </ul>
+        </div>
+
+        <div class="important">
+            <p><strong>Usability Issues:</strong></p>
+            <ul>
+                <li>Confusing wording</li>
+                <li>Buttons hard to tap</li>
+                <li>Text too small</li>
+                <li>Colors hard to see</li>
+                <li>5-second wait too long/short</li>
+                <li>Feature doesn't work as expected</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <p><strong>Enhancement Ideas:</strong></p>
+            <ul>
+                <li>Missing features you'd want</li>
+                <li>Better ways to do something</li>
+                <li>UI improvements</li>
+            </ul>
+        </div>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>📱 How to Provide Feedback</h2>
+
+        <h3>In TestFlight App</h3>
+        <ol style="color: var(--text-secondary); line-height: 2;">
+            <li>Open TestFlight</li>
+            <li>Select WellCheck</li>
+            <li>Tap "Send Beta Feedback"</li>
+            <li>Include screenshots if possible</li>
+        </ol>
+
+        <h3>Via Email</h3>
+        <p><a href="mailto:support@wellcheckapp.com" style="color: var(--accent-green);">support@wellcheckapp.com</a></p>
+        <ul>
+            <li>Subject: "TestFlight - [Your Issue]"</li>
+            <li>Include: iOS version, iPhone model, what you were doing</li>
+        </ul>
+
+        <h3>What to Include</h3>
+        <ul>
+            <li>What you expected to happen</li>
+            <li>What actually happened</li>
+            <li>Steps to reproduce</li>
+            <li>Screenshots/screen recordings</li>
+            <li><strong>For SMS issues:</strong> Did contact receive message? Screenshot from their phone?</li>
+        </ul>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>⏱️ Testing Timeline</h2>
+
+        <div class="highlight">
+            <p style="font-size: 20px; font-weight: 600; color: var(--accent-green);">1 WEEK TESTING PERIOD</p>
+            <ul>
+                <li><strong>Days 1-2:</strong> Setup and verify Twilio messages work</li>
+                <li><strong>Days 3-4:</strong> Daily check-ins and emergency flow</li>
+                <li><strong>Days 5-7:</strong> Edge cases, opt-out testing, final feedback</li>
+            </ul>
+        </div>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>🎯 Focus Areas</h2>
+
+        <h3>High Priority</h3>
+        <ol style="color: var(--text-secondary); line-height: 2;">
+            <li><strong>Twilio integration</strong> - Do intro and emergency SMS work?</li>
+            <li><strong>Opt-out notifications</strong> - Do you get alerted?</li>
+            <li><strong>Reliability</strong> - Does check-in system work consistently?</li>
+            <li><strong>Emergency flow</strong> - Would this work in a real emergency?</li>
+        </ol>
+
+        <h3>Medium Priority</h3>
+        <ol start="5" style="color: var(--text-secondary); line-height: 2;">
+            <li><strong>Usability</strong> - Can you/your child use it without confusion?</li>
+            <li><strong>Settings</strong> - Are all options clear?</li>
+            <li><strong>Notifications</strong> - Timing and clarity</li>
+        </ol>
+
+        <h3>Low Priority</h3>
+        <ol start="8" style="color: var(--text-secondary); line-height: 2;">
+            <li><strong>Visual design</strong> - Colors, fonts, spacing</li>
+            <li><strong>Performance</strong> - Speed, battery usage</li>
+        </ol>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <h2>❓ FAQ</h2>
+
+        <p><strong>Q: How often should I test?</strong><br>
+        A: Daily check-ins for adults. 2-3 practice sessions with kids total.</p>
+
+        <p><strong>Q: Should I use real phone numbers?</strong><br>
+        A: Yes - we need to test actual calling and Twilio SMS.</p>
+
+        <p><strong>Q: Will my contacts get a lot of test messages?</strong><br>
+        A: Intro message once. Emergency SMS only during intentional tests. Ask them first!</p>
+
+        <p><strong>Q: What if something goes wrong?</strong><br>
+        A: Report it! That's why we're testing. No real emergencies please.</p>
+
+        <p><strong>Q: Can I invite others to test?</strong><br>
+        A: Not yet - we're keeping beta small. Share after public launch!</p>
+
+        <p><strong>Q: Will my test data transfer to the real app?</strong><br>
+        A: No - you'll need to set up again at launch.</p>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+
+        <div class="highlight" style="text-align: center; padding: 2rem;">
+            <h2 style="color: var(--accent-green); margin-bottom: 1rem;">🙏 Thank You!</h2>
+            <p>Your testing is invaluable. Every bug you find makes WellCheck safer for everyone.</p>
+            <p><strong>Special thanks to your emergency contacts</strong> for helping test the SMS alerts!</p>
+            <p style="margin-top: 2rem;">
+                <strong>Questions?</strong> <a href="mailto:support@wellcheckapp.com" style="color: var(--accent-green);">support@wellcheckapp.com</a>
+            </p>
+            <p style="font-size: 24px; margin-top: 1rem;">Ready to test! 🚀</p>
+        </div>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
+        <p style="color: var(--text-secondary); font-size: 14px; text-align: center;">
+            <strong>Version:</strong> 1.0 Beta 1<br>
+            <strong>Build:</strong> [Will be added when uploaded]<br>
+            <strong>Testing Duration:</strong> 1 week
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="mailto:support@wellcheckapp.com">Support</a>
+        </div>
+        <p class="copyright">© 2026 WellCheck. All rights reserved.</p>
+    </footer>
+
+    <!-- Navigation Script -->
+    <script src="../nav.js"></script>
+</body>
+</html>
