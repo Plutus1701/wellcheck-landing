@@ -3,106 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WellCheck - Safety Check-In App</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            color: #333;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        h1 {
-            color: #007AFF;
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-        .tagline {
-            font-size: 20px;
-            color: #666;
-        }
-        .section {
-            margin: 40px 0;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .feature {
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 8px;
-        }
-        .feature h3 {
-            color: #007AFF;
-            margin-top: 0;
-        }
-        .links {
-            text-align: center;
-            margin: 50px 0;
-        }
-        .links a {
-            margin: 0 15px;
-            color: #007AFF;
-            text-decoration: none;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>WellCheck - The Safety App That Actually Helps</title>
+    <meta name="description" content="More than just a check-in app. WellCheck provides customizable safety monitoring, emergency calling, and automated alerts when seconds matter.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <h1>WellCheck</h1>
-        <p class="tagline">Automated safety check-ins for peace of mind</p>
-    </div>
-
-    <div class="section">
-        <h2>What is WellCheck?</h2>
-        <p>WellCheck is a safety monitoring app that helps you stay connected with loved ones through automated check-ins. Perfect for elderly parents, solo travelers, or anyone living alone.</p>
-    </div>
-
-    <div class="features">
-        <div class="feature">
-            <h3>📱 Simple Check-Ins</h3>
-            <p>Set customizable intervals and check in with one tap</p>
-        </div>
-        <div class="feature">
-            <h3>🚨 Emergency Alerts</h3>
-            <p>Automatically notifies trusted contacts if you miss a check-in</p>
-        </div>
-        <div class="feature">
-            <h3>☎️ Easy Contact</h3>
-            <p>One-tap calling with photo-based interface</p>
-        </div>
-        <div class="feature">
-            <h3>🔒 Private & Secure</h3>
-            <p>All data stored locally on your device</p>
+    <!-- Hero Section -->
+    <div class="hero fade-in-up">
+        <div class="container">
+            <h1>The Safety App<br>That Actually Helps</h1>
+            <p class="tagline">Customizable check-ins • Emergency calling • Automated SMS alerts</p>
+            <div class="cta-buttons">
+                <a href="#download" class="btn btn-primary">Download on App Store</a>
+                <a href="#features" class="btn btn-secondary">See How It Works</a>
+            </div>
         </div>
     </div>
 
-    <div class="section">
-        <h2>Coming Soon</h2>
-        <p>WellCheck is currently in development and will be available on the iOS App Store soon.</p>
+    <!-- Competitive Positioning -->
+    <div class="container">
+        <div class="competitive-banner fade-in-up">
+            <h2>More Than Just Another Check-In App</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Seen those viral "Are You Dead?" apps? WellCheck is what they should have been. Not just a daily tap — a complete safety system when seconds matter.
+            </p>
+            <div class="comparison">
+                <div class="feature-check">Customizable intervals (not forced daily)</div>
+                <div class="feature-check">Grace periods prevent false alarms</div>
+                <div class="feature-check">Emergency calling with photos</div>
+                <div class="feature-check">Automated SMS to your call tree</div>
+                <div class="feature-check">Practice mode for training</div>
+                <div class="feature-check">Night mode for proactive safety</div>
+            </div>
+        </div>
     </div>
 
-    <div class="links">
-        <a href="/consent">SMS Consent Process</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms and Conditions</a>
-        <a href="mailto:support@wellcheck.app">Contact Support</a>
+    <!-- Screenshot Gallery -->
+    <div class="screenshot-gallery container">
+        <h2>See WellCheck in Action</h2>
+        <div class="screenshots">
+            <div class="screenshot-item">
+                <img src="Images/Home.png" alt="WellCheck home screen with check-in controls">
+                <p>Simple check-in controls</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="Images/EmergencyMode.png" alt="Emergency calling interface with family photos">
+                <p>Emergency calling with photos</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="Images/Settings.png" alt="Customizable settings screen">
+                <p>Fully customizable settings</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="Images/Onboarding02.png" alt="Contact setup screen">
+                <p>Easy contact setup</p>
+            </div>
+        </div>
     </div>
 
-    <hr style="margin: 60px 0;">
-    <p style="text-align: center; color: #999; font-size: 14px;">
-        © 2026 WellCheck. All rights reserved.
-    </p>
+    <!-- Features Section -->
+    <div class="container" id="features">
+        <div class="section">
+            <h2>Why WellCheck Works Better</h2>
+            <div class="features">
+                <div class="card">
+                    <h3>⚙️ Flexible Intervals</h3>
+                    <p>Check in hourly, daily, or anywhere in between. Not locked into a one-size-fits-all schedule like other apps.</p>
+                </div>
+                <div class="card">
+                    <h3>🛡️ Smart Grace Periods</h3>
+                    <p>Configurable grace period prevents false alarms when you're just running late. Fewer panic calls, more real help.</p>
+                </div>
+                <div class="card">
+                    <h3>📞 Photo Emergency Calling</h3>
+                    <p>Kids and seniors tap family photos to call for help. Intuitive interface that works even when scared or confused.</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Automated SMS Alerts</h3>
+                    <p>Sends SMS to your entire call tree automatically. No need to unlock phone or approve each message.</p>
+                </div>
+                <div class="card">
+                    <h3>🎓 Practice Mode</h3>
+                    <p>Test the emergency flow without making actual calls. Perfect for teaching kids or testing your setup.</p>
+                </div>
+                <div class="card">
+                    <h3>🌙 Night Mode</h3>
+                    <p>Pre-activate emergency interface before leaving someone alone. Instant access to help without navigating menus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who It's For -->
+    <div class="container">
+        <div class="section">
+            <h2>Who Uses WellCheck</h2>
+            <div class="use-cases">
+                <div class="use-case">
+                    <strong>Elderly living independently</strong><br>
+                    Peace of mind for families
+                </div>
+                <div class="use-case">
+                    <strong>Solo travelers & digital nomads</strong><br>
+                    Someone knows you're safe
+                </div>
+                <div class="use-case">
+                    <strong>Parents leaving kids with sitters</strong><br>
+                    Emergency backup when needed
+                </div>
+                <div class="use-case">
+                    <strong>Chronic health conditions</strong><br>
+                    Automatic alerts if unresponsive
+                </div>
+                <div class="use-case">
+                    <strong>Long-distance families</strong><br>
+                    Stay connected daily
+                </div>
+                <div class="use-case">
+                    <strong>Anyone living alone</strong><br>
+                    Simple safety net
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="container">
+        <div class="pricing fade-in-up">
+            <h2>Simple, Honest Pricing</h2>
+            <div class="price">$2.99/month</div>
+            <div class="price-detail">or $29.99/year (save 3 months)</div>
+            <p style="color: var(--text-secondary); margin: 2rem 0;">
+                All features included. No hidden fees. Cancel anytime.
+            </p>
+            <a href="#download" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Download Section -->
+    <div class="container" id="download">
+        <div class="section" style="text-align: center;">
+            <h2>Coming Soon to the App Store</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto;">
+                WellCheck is in final testing and will launch soon. Join our waitlist to be notified at launch.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="mailto:support@wellcheck.app?subject=Waitlist" class="btn btn-primary">Join Waitlist</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/consent">SMS Consent</a>
+            <a href="mailto:support@wellcheck.app">Support</a>
+        </div>
+        <p class="copyright">© 2026 WellCheck. All rights reserved.</p>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 1rem;">
+            Built for iPhone & iPad
+        </p>
+    </footer>
+
+    <!-- Navigation Script -->
+    <script src="nav.js"></script>
 </body>
 </html>
