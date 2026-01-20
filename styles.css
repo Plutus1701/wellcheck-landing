@@ -233,31 +233,15 @@ body {
 }
 
 .screenshots {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     gap: 2rem;
-    overflow-x: auto;
     padding: 2rem 0;
-    scroll-snap-type: x mandatory;
     justify-content: center;
 }
 
-.screenshots::-webkit-scrollbar {
-    height: 8px;
-}
-
-.screenshots::-webkit-scrollbar-track {
-    background: var(--bg-card);
-    border-radius: 4px;
-}
-
-.screenshots::-webkit-scrollbar-thumb {
-    background: var(--primary-blue);
-    border-radius: 4px;
-}
-
 .screenshot-item {
-    flex: 0 0 300px;
-    scroll-snap-align: center;
+    max-width: 300px;
 }
 
 .screenshot-item img {
@@ -290,9 +274,12 @@ body {
 /* Use Cases */
 .use-cases {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .use-case {
@@ -490,6 +477,10 @@ body {
 
     .screenshot-item {
         flex: 0 0 250px;
+    }
+
+    .use-cases {
+        grid-template-columns: 1fr;
     }
 }
 
