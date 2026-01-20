@@ -235,15 +235,14 @@ body {
 .screenshots {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-    padding: 2rem 0;
-    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .screenshot-item {
-    width: 280px;
-    flex-shrink: 0;
+    flex: 0 0 280px;
 }
 
 .screenshot-item img {
@@ -476,10 +475,12 @@ body {
     .screenshots {
         flex-direction: column;
         align-items: center;
+        gap: 2rem;
     }
 
     .screenshot-item {
-        width: 100%;
+        flex: 0 0 auto;
+        width: 90%;
         max-width: 300px;
     }
 
@@ -507,4 +508,16 @@ body {
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1200px) {
+    .screenshots {
+        flex-wrap: wrap;
+    }
+    
+    .screenshot-item {
+        flex: 0 0 45%;
+        max-width: 300px;
+    }
 }
