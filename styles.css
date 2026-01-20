@@ -238,6 +238,7 @@ body {
     overflow-x: auto;
     padding: 2rem 0;
     scroll-snap-type: x mandatory;
+    justify-content: center;
 }
 
 .screenshots::-webkit-scrollbar {
