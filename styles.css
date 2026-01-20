@@ -225,6 +225,7 @@ body {
 .screenshot-gallery {
     margin: 4rem 0;
     text-align: center;
+    width: 100%;
 }
 
 .screenshot-gallery h2 {
@@ -237,8 +238,7 @@ body {
     justify-content: center;
     gap: 3rem;
     padding: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .screenshot-item {
