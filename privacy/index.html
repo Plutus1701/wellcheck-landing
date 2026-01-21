@@ -16,6 +16,8 @@
 
         <div class="highlight">
             <strong>Privacy-First Design:</strong> WellCheck stores the absolute minimum data needed to provide automated emergency alerts. Your personal information (names, photos, settings) stays on your device.
+            <br><br>
+            <strong>No Backend Accounts:</strong> We don't create user accounts or store any identifying information. Phone numbers are stored anonymously for SMS delivery only.
         </div>
 
         <h2>Data Stored on Your Device (Local Only)</h2>
@@ -32,19 +34,23 @@
         <div class="important">
             <p>To send automated emergency SMS alerts, WellCheck stores minimal data on secure servers:</p>
             <ul>
-                <li><strong>Phone numbers only</strong> (your emergency contacts' numbers)</li>
+                <li><strong>Emergency contact phone numbers</strong> (to deliver SMS)</li>
                 <li><strong>Opt-out records</strong> (phone numbers that opted out - legal requirement)</li>
-                <li><strong>Device notification token</strong> (to notify you if a contact opts out)</li>
             </ul>
-            <p><strong>What we DON'T store:</strong> Names, photos, addresses, locations, usage patterns, or any other personal information.</p>
+            <p><strong>What we DON'T store:</strong></p>
+            <ul>
+                <li>Your name or personal information</li>
+                <li>Contact names or photos</li>
+                <li>Device identifiers or tokens</li>
+                <li>Usage patterns or analytics</li>
+                <li>Anything else</li>
+            </ul>
         </div>
 
         <h2>Why Backend Storage is Necessary</h2>
         <p><strong>iOS Limitation:</strong> Apple doesn't allow apps to send automated SMS messages from your device. To provide emergency alerts, we must use a third-party SMS service (Twilio).</p>
         
         <p><strong>Legal Requirement:</strong> US law (TCPA) requires us to permanently honor opt-out requests, which means storing opt-out records.</p>
-        
-        <p><strong>Safety Feature:</strong> We notify you if an emergency contact opts out so you can add a replacement.</p>
 
         <h2>Third-Party Services</h2>
         
@@ -66,9 +72,8 @@
 
         <h2>Your Data Rights</h2>
         <ul>
-            <li><strong>View stored phone numbers:</strong> Contact us at support@wellcheck.app</li>
-            <li><strong>Delete backend data:</strong> Delete your account in Settings (removes all phone numbers from our servers)</li>
-            <li><strong>Delete local data:</strong> Delete the WellCheck app</li>
+            <li><strong>View stored data:</strong> Contact support@wellcheck.app</li>
+            <li><strong>Remove your data:</strong> Delete the WellCheck app</li>
             <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts</li>
         </ul>
 
@@ -76,7 +81,6 @@
         <ul>
             <li>All network communication uses HTTPS encryption</li>
             <li>Backend data is encrypted at rest on Firebase servers</li>
-            <li>Phone numbers are stored in hashed format where possible</li>
             <li>No employee access to user data</li>
             <li>Regular security audits</li>
         </ul>
@@ -86,9 +90,8 @@
 
         <h2>Data Retention</h2>
         <ul>
-            <li><strong>Phone numbers:</strong> Stored only while you have active contacts in the app</li>
+            <li><strong>Phone numbers:</strong> Stored only while actively used for SMS delivery</li>
             <li><strong>Opt-out records:</strong> Stored permanently (legal requirement)</li>
-            <li><strong>Device tokens:</strong> Deleted when you delete your account</li>
         </ul>
 
         <h2>Your Choices</h2>
