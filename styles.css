@@ -2,9 +2,9 @@
 /* Brand Colors: Blue-Purple Gradient + Vivid Green */
 
 :root {
-    --primary-blue: #42A5F5;
-    --primary-purple: #483789;
-    --accent-green: #00C853;
+    --primary-blue: #4a9ede;
+    --primary-purple: #3c3679;
+    --accent-green: #48bb78;
     --bg-dark: #0A0A0F;
     --bg-card: rgba(255, 255, 255, 0.05);
     --text-primary: #FFFFFF;
