@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellCheck - App Tour</title>
+    <meta name="description" content="Complete walkthrough of WellCheck features - setup, customization, and emergency calling.">
+    <link rel="icon" href="../Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .tour-section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+        }
+        
+        .tour-section:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .tour-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .tour-header h2 {
+            font-size: 36px;
+            margin-bottom: 1rem;
+        }
+        
+        .tour-header p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .tour-screenshots {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+        
+        .tour-screenshot {
+            width: 280px;
+            text-align: center;
+        }
+        
+        .tour-screenshot img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+        
+        .tour-screenshot p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+        
+        .video-container video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(72, 187, 120, 0.3);
+        }
+        
+        .feature-callout {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1), rgba(74, 158, 222, 0.1));
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-glass);
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-callout h3 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-callout ul {
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tour-header fade-in-up" style="margin-top: 4rem;">
+            <img src="/Images/Icon1024.png" alt="WellCheck App Icon" 
+                 style="width: 120px; height: 120px; border-radius: 27px; 
+                        margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(72, 187, 120, 0.3);">
+            <h1>How WellCheck Works</h1>
+            <p style="color: var(--text-secondary); font-size: 20px; margin-top: 1rem;">
+                A complete walkthrough of setup, customization, and emergency features
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="/" class="btn btn-secondary">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Getting Started -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">1</div>
+                <h2>Getting Started</h2>
+                <p>Welcome screens walk you through the basics and explain how WellCheck keeps you safe</p>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding01.png" alt="Welcome screen">
+                    <p>Welcome to WellCheck</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding02.png" alt="How it works">
+                    <p>Simple check-in system</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding03.png" alt="Emergency features">
+                    <p>Emergency safety features</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Setup Your Safety Net -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">2</div>
+                <h2>Setup Your Safety Net</h2>
+                <p>Add trusted adults and customize how they appear in the app</p>
+            </div>
+            
+            <div class="feature-callout">
+                <h3>Complete Control Over Customization</h3>
+                <ul>
+                    <li><strong>Change contact names in the app</strong> - Your phone's contact list stays unchanged</li>
+                    <li><strong>Choose different photos</strong> - Perfect for kids who recognize faces better than formal headshots</li>
+                    <li><strong>Reorder priorities</strong> - Drag to set who gets called first</li>
+                    <li><strong>Add notes for each contact</strong> - Special instructions for emergencies</li>
+                </ul>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding04.png" alt="Add contacts">
+                    <p>Add trusted adults from your contacts</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding05.png" alt="Customize contacts">
+                    <p>Customize names and photos</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding06.png" alt="Reorder contacts">
+                    <p>Set priority order</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Choose Your Check-In Style -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">3</div>
+                <h2>Choose Your Check-In Style</h2>
+                <p>Flexible scheduling that fits your lifestyle - not the other way around</p>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <img src="/Images/CheckIntervals.png" alt="Interval mode">
+                    <p><strong>Interval Mode:</strong> Check in every X hours</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/CheckScheduled.png" alt="Scheduled times">
+                    <p><strong>Scheduled Times:</strong> Specific check-in times</p>
+                </div>
+            </div>
+            
+            <div class="feature-callout">
+                <h3>Fully Customizable Schedule</h3>
+                <ul>
+                    <li><strong>Set your own intervals</strong> - From hourly to once per day</li>
+                    <li><strong>Or choose specific times</strong> - Morning, afternoon, evening check-ins</li>
+                    <li><strong>Configurable grace periods</strong> - 5-30 minutes before alerts go out</li>
+                    <li><strong>Custom emergency messages</strong> - Add health info, special instructions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daily Check-Ins -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">4</div>
+                <h2>Simple Daily Check-Ins</h2>
+                <p>One tap when you wake up, then go about your day with peace of mind</p>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <img src="/Images/Home.png" alt="Check-in screen">
+                    <p>Simple one-tap check-in</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Settings.png" alt="Settings screen">
+                    <p>Adjust your schedule anytime</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Mode in Action -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">5</div>
+                <h2>Emergency Mode in Action</h2>
+                <p>If you miss a check-in, WellCheck automatically activates emergency calling and sends alerts</p>
+            </div>
+            
+            <div class="video-container">
+                <video controls poster="/Images/EmergencyMode.png">
+                    <source src="/videos/EmergencyMode.mp4" type="video/mp4">
+                    Your browser doesn't support video playback.
+                </video>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">
+                    Watch how the emergency calling interface works - designed to be intuitive even for young children
+                </p>
+            </div>
+            
+            <div class="feature-callout">
+                <h3>How Emergency Mode Works</h3>
+                <ul>
+                    <li><strong>Automatic SMS alerts</strong> - Your entire call tree gets notified immediately</li>
+                    <li><strong>Progressive calling</strong> - Large photos show who to call next</li>
+                    <li><strong>Simple for kids</strong> - Just tap the photo of the person you want to call</li>
+                    <li><strong>911 backup</strong> - Appears after all contacts have been tried</li>
+                    <li><strong>Practice mode</strong> - Test the flow without making real calls</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- For Every Situation -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">6</div>
+                <h2>Features for Every Situation</h2>
+                <p>Night mode, practice mode, and more - WellCheck adapts to your needs</p>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding07.png" alt="Practice mode">
+                    <p><strong>Practice Mode:</strong> Test without making calls</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding08.png" alt="Night mode">
+                    <p><strong>Night Mode:</strong> Proactive safety overnight</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding09.png" alt="Emergency services">
+                    <p><strong>911 Access:</strong> Always available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy First -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <h2>Privacy First, Always</h2>
+                <p>Your personal information stays on your device - we only store what's absolutely necessary for SMS delivery</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <div class="card">
+                    <h3 style="color: var(--accent-green);">Stays on Your Device</h3>
+                    <ul style="color: var(--text-secondary); line-height: 1.8;">
+                        <li>Contact names & photos</li>
+                        <li>Your personal information</li>
+                        <li>Check-in history</li>
+                        <li>All settings</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: var(--primary-blue);">Minimal Backend</h3>
+                    <ul style="color: var(--text-secondary); line-height: 1.8;">
+                        <li>Phone numbers (for SMS)</li>
+                        <li>Opt-out records (legal requirement)</li>
+                        <li>Nothing else</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/privacy" class="btn btn-secondary">Read Full Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ready to Get Started -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <h2>Ready to Get Started?</h2>
+                <p>Join the waitlist to be notified when WellCheck launches on the App Store</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="mailto:support@wellcheckapp.com?subject=Waitlist" class="btn btn-primary" style="margin-right: 1rem;">Join Waitlist</a>
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/consent">SMS Consent</a>
+            <a href="mailto:support@wellcheckapp.com">Support</a>
+        </div>
+        <p class="copyright">© 2026 WellCheck. All rights reserved.</p>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 1rem;">
+            Built for iPhone & iPad
+        </p>
+    </footer>
+
+    <!-- Navigation Script -->
+    <script src="../nav.js"></script>
+</body>
+</html>
