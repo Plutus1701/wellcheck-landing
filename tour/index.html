@@ -60,13 +60,14 @@
         }
         
         .video-container {
-            max-width: 800px;
+            max-width: 400px;
             margin: 3rem auto;
             text-align: center;
         }
         
         .video-container video {
             width: 100%;
+            max-height: 500px;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(72, 187, 120, 0.3);
         }
@@ -248,8 +249,8 @@
             </div>
             
             <div class="video-container">
-                <video controls poster="/Images/EmergencyMode.png">
-                    <source src="/Videos/EmergencyMode.mp4" type="video/mp4">
+                <video controls poster="/Images/EmergencyMode.png" style="max-height: 500px; height: auto;">
+                    <source src="/Movies/EmergencyMode.mp4" type="video/mp4">
                     Your browser doesn't support video playback.
                 </video>
                 <p style="color: var(--text-secondary); margin-top: 1rem;">
