@@ -54,6 +54,30 @@
             margin-bottom: 1rem;
         }
         
+        .tour-screenshot .placeholder {
+            width: 100%;
+            height: 606px;
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1), rgba(66, 165, 245, 0.1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-glass);
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tour-screenshot .placeholder.emergency {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));
+        }
+        
+        .tour-screenshot .placeholder span {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-align: center;
+            padding: 2rem;
+        }
+        
         .tour-screenshot p {
             color: var(--text-secondary);
             font-size: 14px;
@@ -219,7 +243,7 @@
             <div class="tour-header">
                 <div class="step-number">4</div>
                 <h2>Simple Daily Check-Ins</h2>
-                <p>One tap when you wake up, then go about your day with peace of mind</p>
+                <p>One tap when reminded, then go about your day with peace of mind</p>
             </div>
             
             <div class="tour-screenshots">
@@ -228,9 +252,25 @@
                     <p>Simple one-tap check-in</p>
                 </div>
                 <div class="tour-screenshot">
+                    <div class="placeholder">
+                        <span>Check-in Alert<br>Screenshot<br>Coming Soon</span>
+                    </div>
+                    <p>Friendly check-in reminders</p>
+                </div>
+                <div class="tour-screenshot">
                     <img src="/Images/Settings.png" alt="Settings screen" loading="lazy">
                     <p>Adjust your schedule anytime</p>
                 </div>
+            </div>
+            
+            <div class="feature-callout">
+                <h3>How Check-Ins Work</h3>
+                <ul>
+                    <li><strong>Get reminded</strong> - Notification arrives at your scheduled time</li>
+                    <li><strong>One tap</strong> - Opens the app and confirms you're safe</li>
+                    <li><strong>Grace period starts</strong> - If you don't respond, you get 5-30 minutes</li>
+                    <li><strong>Automatic escalation</strong> - After grace period, emergency mode activates</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -240,8 +280,32 @@
         <div class="container">
             <div class="tour-header">
                 <div class="step-number">5</div>
-                <h2>Emergency Mode in Action</h2>
-                <p>If you miss a check-in, WellCheck automatically sends your phone in alert to bring up emergency calling.</p>
+                <h2>When You Miss a Check-In</h2>
+                <p>WellCheck automatically alerts your contacts and activates emergency calling</p>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <div class="placeholder emergency">
+                        <span>Emergency SMS<br>Screenshot<br>Coming Soon</span>
+                    </div>
+                    <p>Automatic SMS to your contact list</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/EmergencyMode.png" alt="Emergency calling screen" loading="lazy">
+                    <p>Emergency calling interface activates</p>
+                </div>
+            </div>
+            
+            <div class="feature-callout" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));">
+                <h3 style="color: #E91E63;">What Happens in an Emergency</h3>
+                <ul>
+                    <li><strong>Immediate SMS alerts</strong> - Your customized contact list receives texts from WellCheck's dedicated number</li>
+                    <li><strong>Real text messages</strong> - Not from your phone, so contacts take them seriously</li>
+                    <li><strong>Custom emergency info</strong> - Include critical details like medical conditions or locations to check</li>
+                    <li><strong>Emergency calling activated</strong> - Large photo buttons for calling family members</li>
+                    <li><strong>Works when unconscious</strong> - No button to push, everything happens automatically</li>
+                </ul>
             </div>
             
             <div class="video-container">
@@ -255,26 +319,57 @@
             </div>
             
             <div class="feature-callout">
-                <h3>How Emergency Mode Works</h3>
+                <h3>Emergency Calling Features</h3>
                 <ul>
-                    <li><strong>Automatic SMS alerts</strong> - Your entire call tree gets notified immediately to contact you and check-in</li>
-                    <li><strong>Emergency Mode Lock Screen</strong> - Enter emergency mode before bed, kids can access emergency contacts and can't exit the screen
                     <li><strong>Progressive calling</strong> - Large photos show who to call next</li>
-                    <li><strong>Simple for kids</strong> - Just tap the photo of the person you want to call. Then click the Blue (iOS required) callout.</li>
+                    <li><strong>Simple for kids</strong> - Just tap the photo, then tap the blue iOS call button</li>
+                    <li><strong>Tested with young children</strong> - Works with kids as young as 3 years old</li>
                     <li><strong>911 backup</strong> - Appears after all contacts have been tried</li>
-                    <li><strong>Practice mode</strong> - Test the flow without making real calls, tested with kids as young as 3</li>
+                    <li><strong>Practice mode available</strong> - Test the flow without making real calls</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- For Every Situation -->
+    <!-- Night Mode -->
     <div class="tour-section">
         <div class="container">
             <div class="tour-header">
                 <div class="step-number">6</div>
-                <h2>Features for Every Situation</h2>
-                <p>Night mode, practice mode, and more - WellCheck adapts to your needs</p>
+                <h2>Night Mode for Solo Parents</h2>
+                <p>Pre-activate emergency calling before bed - kids can access help if something happens overnight</p>
+            </div>
+            
+            <div class="tour-screenshots">
+                <div class="tour-screenshot">
+                    <img src="/Images/Onboarding08.png" alt="Night mode" loading="lazy">
+                    <p><strong>Night Mode:</strong> Lock screen with emergency contacts</p>
+                </div>
+                <div class="tour-screenshot">
+                    <img src="/Images/EmergencyMode.png" alt="Emergency calling" loading="lazy">
+                    <p>Kids tap family photos to call for help</p>
+                </div>
+            </div>
+            
+            <div class="feature-callout" style="background: linear-gradient(135deg, rgba(66, 165, 245, 0.1), rgba(156, 39, 176, 0.1));">
+                <h3 style="color: var(--primary-blue);">Why Night Mode Matters</h3>
+                <ul>
+                    <li><strong>For solo parents</strong> - What if you have a medical emergency overnight?</li>
+                    <li><strong>Kids aren't stuck alone</strong> - They can call for help immediately, not hours later when someone notices you haven't checked in</li>
+                    <li><strong>Biometric lock</strong> - Kids can't accidentally exit the emergency screen</li>
+                    <li><strong>Simple interface</strong> - Just tap a family member's photo to call them</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Features -->
+    <div class="tour-section">
+        <div class="container">
+            <div class="tour-header">
+                <div class="step-number">7</div>
+                <h2>Additional Features</h2>
+                <p>Practice mode, 911 access, and more</p>
             </div>
             
             <div class="tour-screenshots">
@@ -283,12 +378,8 @@
                     <p><strong>Practice Mode:</strong> Test without making calls</p>
                 </div>
                 <div class="tour-screenshot">
-                    <img src="/Images/Onboarding08.png" alt="Night mode" loading="lazy">
-                    <p><strong>Night Mode:</strong> Proactive safety overnight</p>
-                </div>
-                <div class="tour-screenshot">
                     <img src="/Images/Onboarding09.png" alt="Emergency services" loading="lazy">
-                    <p><strong>911 Access:</strong> Always available</p>
+                    <p><strong>911 Access:</strong> Always available as backup</p>
                 </div>
             </div>
         </div>
