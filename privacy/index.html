@@ -18,17 +18,16 @@
         <div class="highlight">
             <strong>Privacy-First Design:</strong> WellCheck stores the absolute minimum data needed to provide automated emergency alerts. Your personal information (names, photos, settings) stays on your device.
             <br><br>
-            <strong>No Backend Accounts:</strong> We don't create user accounts or store any identifying information. Phone numbers are stored anonymously for SMS delivery only.
+            <strong>No Backend Accounts:</strong> We don't create user accounts or store any identifying information beyond what's required for SMS consent and delivery.
         </div>
 
         <h2>Data Stored on Your Device (Local Only)</h2>
         <p>The following data never leaves your iPhone:</p>
         <ul>
-            <li><strong>Contact names</strong> and photos</li>
-            <li><strong>Your name</strong> and personal information</li>
+            <li><strong>Contact photos</strong></li>
             <li><strong>Check-in history</strong> and app settings</li>
             <li><strong>Alarm schedules</strong> and preferences</li>
-            <li><strong>Emergency notes</strong> and custom messages</li>
+            <li><strong>App customization</strong> preferences</li>
         </ul>
 
         <h2>Minimal Backend Storage (Required for SMS)</h2>
@@ -37,27 +36,50 @@
             <ul>
                 <li><strong>Emergency contact phone numbers</strong> (to deliver SMS)</li>
                 <li><strong>Opt-out records</strong> (phone numbers that opted out - legal requirement)</li>
+                <li><strong>Device push tokens</strong> (to notify you if a contact opts out)</li>
             </ul>
             <p><strong>What we DON'T store:</strong></p>
             <ul>
-                <li>Your name or personal information</li>
-                <li>Contact names or photos</li>
-                <li>Device identifiers or tokens</li>
+                <li>Contact photos</li>
+                <li>Device identifiers beyond push tokens</li>
                 <li>Usage patterns or analytics</li>
+                <li>Location data</li>
                 <li>Anything else</li>
+            </ul>
+        </div>
+
+        <h2>Data Stored for SMS Consent Management</h2>
+        <div class="important">
+            <p>To manage email consent requests for SMS alerts, we temporarily store:</p>
+            <ul>
+                <li><strong>Contact email addresses</strong> (to send consent requests)</li>
+                <li><strong>Contact names</strong> (to personalize consent emails)</li>
+                <li><strong>Your full name</strong> (displayed in consent requests)</li>
+                <li><strong>Consent status</strong> (pending/confirmed/rejected/expired)</li>
+                <li><strong>Emergency notes</strong> (optional custom message included in SMS alerts)</li>
+                <li><strong>Phone numbers</strong> (only after consent is accepted)</li>
+            </ul>
+            <p><strong>Retention:</strong></p>
+            <ul>
+                <li>Pending requests: Deleted after 7 days if no response</li>
+                <li>Accepted/rejected: Stored permanently for compliance</li>
+                <li>Email addresses: Deleted after consent processed (not used for marketing)</li>
+                <li>Emergency notes: Stored while contact is active, deleted when contact removed</li>
             </ul>
         </div>
 
         <h2>Why Backend Storage is Necessary</h2>
         <p><strong>iOS Limitation:</strong> Apple doesn't allow apps to send automated SMS messages from your device. To provide emergency alerts, we must use a third-party SMS service (Twilio).</p>
         
-        <p><strong>Legal Requirement:</strong> US law (TCPA) requires us to permanently honor opt-out requests, which means storing opt-out records.</p>
+        <p><strong>Legal Requirement:</strong> US law (TCPA) requires us to collect explicit consent before sending SMS messages and to permanently honor opt-out requests.</p>
 
         <h2>Third-Party Services</h2>
         
-        <p><strong>Twilio (SMS Delivery):</strong> Used only to send emergency alerts to your contacts. Twilio processes phone numbers and message content but does not store or use this data for any other purpose.</p>
+        <p><strong>SendGrid (Email Delivery):</strong> Used to send consent request emails to your contacts. SendGrid processes email addresses and names but does not store or use this data for any other purpose.</p>
         
-        <p><strong>Firebase (Minimal Storage):</strong> Google's Firebase securely stores the phone numbers and opt-out records. Data is encrypted in transit and at rest.</p>
+        <p><strong>Twilio (SMS Delivery):</strong> Used only to send emergency alerts to contacts who have explicitly consented. Twilio processes phone numbers and message content but does not store or use this data for any other purpose.</p>
+        
+        <p><strong>Firebase (Minimal Storage):</strong> Google's Firebase securely stores phone numbers, consent records, and opt-out records. Data is encrypted in transit and at rest.</p>
         
         <p><strong>No Analytics or Tracking:</strong> We don't use analytics services, advertising networks, or any tracking tools.</p>
 
@@ -74,14 +96,16 @@
         <h2>Your Data Rights</h2>
         <ul>
             <li><strong>View stored data:</strong> Contact support@wellcheckapp.com</li>
-            <li><strong>Remove your data:</strong> Delete the WellCheck app</li>
-            <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts</li>
+            <li><strong>Remove your data:</strong> Delete the WellCheck app to remove all local data</li>
+            <li><strong>Remove backend data:</strong> Contact support to delete consent records and phone numbers</li>
+            <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts or decline the email consent request</li>
         </ul>
 
         <h2>Data Security</h2>
         <ul>
             <li>All network communication uses HTTPS encryption</li>
             <li>Backend data is encrypted at rest on Firebase servers</li>
+            <li>Email delivery uses TLS encryption via SendGrid</li>
             <li>No employee access to user data</li>
             <li>Regular security audits</li>
         </ul>
@@ -91,15 +115,18 @@
 
         <h2>Data Retention</h2>
         <ul>
-            <li><strong>Phone numbers:</strong> Stored only while actively used for SMS delivery</li>
+            <li><strong>Email addresses:</strong> Stored during consent process (up to 7 days), then deleted</li>
+            <li><strong>Phone numbers:</strong> Stored while actively used for SMS delivery</li>
+            <li><strong>Consent records:</strong> Stored permanently (compliance requirement)</li>
             <li><strong>Opt-out records:</strong> Stored permanently (legal requirement)</li>
+            <li><strong>Emergency notes:</strong> Stored while contact is active, deleted when contact removed</li>
         </ul>
 
         <h2>Your Choices</h2>
         <p>If you prefer complete privacy with no backend storage, you can:</p>
         <ul>
             <li>Use WellCheck without SMS alerts (emergency calling still works)</li>
-            <li>Manually send messages instead of automated alerts</li>
+            <li>Don't add emergency notes (keep them on your device only)</li>
         </ul>
 
         <h2>Changes to This Policy</h2>
