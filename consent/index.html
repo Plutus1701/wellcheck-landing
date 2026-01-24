@@ -15,37 +15,73 @@
         <h1>SMS Consent Process</h1>
 
         <h2>How Consent is Collected</h2>
-        <p>WellCheck collects explicit consent for SMS alerts through the following process:</p>
+        <p>WellCheck collects <strong>explicit prior consent</strong> for SMS alerts through a multi-step verification process:</p>
         
         <ol style="color: var(--text-secondary); line-height: 2;">
-            <li><strong style="color: var(--text-primary);">User Action:</strong> A WellCheck user manually adds a trusted contact within the app</li>
-            <li><strong style="color: var(--text-primary);">Intro Message Sent:</strong> The contact receives an automated introduction message explaining the service</li>
-            <li><strong style="color: var(--text-primary);">Explicit Opt-In:</strong> Contact can reply STOP to immediately opt out, or continue receiving alerts by taking no action</li>
+            <li><strong style="color: var(--text-primary);">User adds contact:</strong> A WellCheck user manually adds a trusted contact within the app, providing their name, phone number, and email address</li>
+            <li><strong style="color: var(--text-primary);">Email consent request sent:</strong> The contact receives an email explaining the service and requesting consent</li>
+            <li><strong style="color: var(--text-primary);">Contact reviews and decides:</strong> Contact clicks a link to review what they're consenting to and can Accept or Decline</li>
+            <li><strong style="color: var(--text-primary);">Explicit acceptance required:</strong> Only after clicking "Accept" on the consent form will the contact receive SMS alerts</li>
+            <li><strong style="color: var(--text-primary);">Welcome SMS sent:</strong> After accepting, contact receives a welcome SMS with opt-out instructions</li>
         </ol>
 
-        <h2>Sample Intro Message (Sent When Contact Added)</h2>
-        <div class="message-box">Hi [CONTACT NAME]!
+        <div class="highlight">
+            <strong>Important:</strong> Contacts must explicitly accept via email before receiving any SMS alerts. There is no implied or passive consent - clicking "Accept" is required.
+        </div>
 
-[USER FULL NAME] added you as an emergency contact in WellCheck, a safety monitoring app.
+        <h2>Sample Email Consent Request</h2>
+        <div class="message-box">Subject: [User Name] added you as an emergency contact
 
-You'll receive automated alerts ONLY if [USER FULL NAME] misses a health check-in, which may indicate a medical emergency.
+Hi [Contact Name],
 
-Expected frequency: Rarely (hopefully never)
+[User Full Name] has added you as an emergency contact in WellCheck, a health monitoring app.
+
+What you're consenting to:
+- Receive automated SMS alerts if they miss a check-in
+- Alerts indicate potential medical emergency
+- Expected frequency: Rarely (hopefully never)
+
+[Review Consent Request Button]
 
 Learn more: wellcheckapp.com
-Reply STOP to opt out | HELP for info</div>
 
-        <h2>Sample Emergency Alert</h2>
+This consent request will expire in 7 days.</div>
+
+        <h2>Consent Form (Web-Based)</h2>
+        <p>When contacts click the email link, they see a web form with:</p>
+        <ul>
+            <li>Clear explanation of what they're consenting to</li>
+            <li>Two buttons: <strong style="color: var(--accent-green);">Accept</strong> or <strong style="color: #f44336;">Decline</strong></li>
+            <li>Link to WellCheck website for more information</li>
+            <li>Notice that consent expires in 7 days if not responded to</li>
+        </ul>
+
+        <h2>Sample Welcome SMS (Sent After Acceptance Only)</h2>
+        <div class="message-box">Hi [Contact Name]!
+
+[User Full Name] added you as an emergency contact in WellCheck.
+
+You'll receive alerts ONLY if [User Full Name] misses a check-in.
+
+Learn more: wellcheckapp.com
+Reply STOP to opt out</div>
+
+        <h2>Sample Emergency Alert SMS</h2>
         <div class="message-box">⚠️ WELLCHECK EMERGENCY ALERT
 
-[USER FULL NAME] missed a safety check-in and may need immediate assistance.
+[User Full Name] missed a safety check-in and may need immediate assistance.
 
-Scheduled check-in: [TIME] on [DATE]
-Grace period ended: [TIME]
-Alert sent: [CURRENT TIME]
+Scheduled check-in: [Time] on [Date]
+Grace period ended: [Time]
+Alert sent: [Current Time]
 
-Please verify [USER FULL NAME] is safe.
-Call immediately: [USER PHONE NUMBER]
+IMPORTANT INFO: [Custom emergency notes if provided]
+
+Please verify [User Full Name] is safe.
+Call immediately: [User Phone Number]
+
+This is an automated alert from WellCheck.
+Verify: wellcheckapp.com/v/[alert-id]
 
 Reply STOP to opt out</div>
 
@@ -53,29 +89,46 @@ Reply STOP to opt out</div>
         <div class="important">
             <strong>Recipients can opt out at any time by:</strong>
             <ul>
-                <li>Replying <strong>STOP</strong> to any message</li>
+                <li>Declining the email consent request (before any SMS sent)</li>
+                <li>Replying <strong>STOP</strong> to any SMS message</li>
                 <li>Replying <strong>UNSUBSCRIBE</strong></li>
                 <li>Replying <strong>HELP</strong> for more information</li>
             </ul>
-            <p>Opt-outs are processed immediately and permanently.</p>
+            <p>Opt-outs are processed immediately and permanently. Once opted out, the contact will not receive any further messages.</p>
         </div>
 
         <h2>Message Frequency</h2>
-        <p>Contacts receive messages only when:</p>
+        <p>Contacts receive SMS messages only when:</p>
         <ul>
-            <li>They are first added (intro message - once)</li>
-            <li>The user misses a check-in (emergency alert - rare)</li>
+            <li><strong>After accepting email consent:</strong> One welcome message</li>
+            <li><strong>During emergencies:</strong> When the user misses a check-in (rare)</li>
         </ul>
-        <p><strong>Expected frequency:</strong> Very low - emergency alerts are sent only during genuine emergencies.</p>
+        <p><strong>Expected frequency:</strong> Very low - typically zero messages per month unless there's a genuine emergency.</p>
+
+        <h2>Data Collected for Consent</h2>
+        <p>To manage consent, we store:</p>
+        <ul>
+            <li>Contact email address (for consent request)</li>
+            <li>Consent status (pending/confirmed/rejected)</li>
+            <li>Consent timestamp</li>
+            <li>Phone number (only if consent accepted)</li>
+            <li>User's full name (displayed in consent request)</li>
+        </ul>
+        <p><strong>Data retention:</strong> Consent records stored for 7 days if no response, permanently if accepted or rejected.</p>
+
+        <h2>Consent Expiration</h2>
+        <p>Email consent requests expire after 7 days if not responded to. The contact can be re-added and will receive a new consent request.</p>
 
         <h2>Contact Information</h2>
         <p><strong>Service Name:</strong> WellCheck</p>
         <p><strong>Support Email:</strong> <a href="mailto:support@wellcheckapp.com" style="color: var(--accent-green);">support@wellcheckapp.com</a></p>
+        <p><strong>Website:</strong> <a href="https://wellcheckapp.com" style="color: var(--accent-green);">wellcheckapp.com</a></p>
         <p><strong>Purpose:</strong> Emergency safety monitoring and alerts</p>
+        <p><strong>SMS Provider:</strong> Twilio (toll-free number)</p>
 
         <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
         <p style="color: var(--text-secondary); font-size: 14px;">
-            This page documents WellCheck's SMS consent process for compliance purposes.<br>
+            This page documents WellCheck's SMS consent process for TCPA compliance.<br>
             Last updated: January 2026
         </p>
     </div>
