@@ -20,13 +20,13 @@
         <ol style="color: var(--text-secondary); line-height: 2;">
             <li><strong style="color: var(--text-primary);">User adds contact:</strong> A WellCheck user manually adds a trusted contact within the app, providing their name, phone number, and email address</li>
             <li><strong style="color: var(--text-primary);">Email consent request sent:</strong> The contact receives an email explaining the service and requesting consent</li>
-            <li><strong style="color: var(--text-primary);">Contact reviews and decides:</strong> Contact clicks a link to review what they're consenting to and can Accept or Decline</li>
-            <li><strong style="color: var(--text-primary);">Explicit acceptance required:</strong> Only after clicking "Accept" on the consent form will the contact receive SMS alerts</li>
+            <li><strong style="color: var(--text-primary);">Contact reviews consent form:</strong> Contact clicks a link to review a detailed consent form with explicit SMS messaging agreement</li>
+            <li><strong style="color: var(--text-primary);">Explicit SMS acceptance required:</strong> Contact must click "I Accept and Agree to Receive SMS Messages" button to consent</li>
             <li><strong style="color: var(--text-primary);">Welcome SMS sent:</strong> After accepting, contact receives a welcome SMS with opt-out instructions</li>
         </ol>
 
         <div class="highlight">
-            <strong>Important:</strong> Contacts must explicitly accept via email before receiving any SMS alerts. There is no implied or passive consent - clicking "Accept" is required.
+            <strong>Important:</strong> Contacts must explicitly accept via the consent form before receiving any SMS alerts. The consent form prominently displays: "I agree to receive SMS text messages from WellCheck" with detailed information about message types, frequency, and opt-out options.
         </div>
 
         <h2>Sample Email Consent Request</h2>
@@ -37,8 +37,8 @@ Hi [Contact Name],
 [User Full Name] has added you as an emergency contact in WellCheck, a health monitoring app.
 
 What you're consenting to:
-- Receive automated SMS alerts if they miss a check-in
-- Alerts indicate potential medical emergency
+- Receive automated SMS alerts if they miss a health check-in
+- Alerts indicate potential medical emergency requiring immediate verification
 - Expected frequency: Rarely (hopefully never)
 
 [Review Consent Request Button]
@@ -48,20 +48,45 @@ Learn more: wellcheckapp.com
 This consent request will expire in 7 days.</div>
 
         <h2>Consent Form (Web-Based)</h2>
-        <p>When contacts click the email link, they see a web form with:</p>
+        <p>When contacts click the email link, they see a detailed web form with:</p>
         <ul>
-            <li>Clear explanation of what they're consenting to</li>
-            <li>Two buttons: <strong style="color: var(--accent-green);">Accept</strong> or <strong style="color: #f44336;">Decline</strong></li>
-            <li>Link to WellCheck website for more information</li>
-            <li>Notice that consent expires in 7 days if not responded to</li>
+            <li>Clear explanation of the emergency contact role</li>
+            <li><strong>Prominent SMS consent section</strong> with green border highlighting</li>
+            <li>Explicit statement: <strong>"I agree to receive SMS text messages from WellCheck"</strong></li>
+            <li>Phone number displayed for verification</li>
+            <li>List of message types they will receive:
+                <ul>
+                    <li>One welcome message after accepting</li>
+                    <li>Emergency alert messages if user misses check-in</li>
+                    <li>Expected frequency: Very rare (only during emergencies)</li>
+                </ul>
+            </li>
+            <li><strong>"Message and data rates may apply"</strong> disclaimer</li>
+            <li><strong>"Reply STOP to opt out"</strong> instructions</li>
+            <li>Two buttons: <strong style="color: var(--accent-green);">"I Accept and Agree to Receive SMS Messages"</strong> or <strong style="color: #f44336;">"Decline"</strong></li>
         </ul>
+
+        <h2>Explicit SMS Consent Language</h2>
+        <div class="message-box" style="background: rgba(72, 187, 120, 0.1); border: 2px solid #48bb78;">
+<strong>📱 SMS Text Messaging Consent</strong>
+
+By clicking "Accept" below, <strong>I agree to receive SMS text messages from WellCheck</strong> at the phone number provided for emergency alert purposes. This includes:
+
+- <strong>One welcome message</strong> after accepting this consent
+- <strong>Emergency alert messages</strong> if [User Name] misses a scheduled health check-in
+- <strong>Expected frequency:</strong> Very rare (only during genuine emergencies)
+
+<strong>Message and data rates may apply.</strong> You can reply STOP at any time to opt out of future messages. Reply HELP for assistance. Carrier message and data rates may apply.</div>
 
         <h2>Sample Welcome SMS (Sent After Acceptance Only)</h2>
         <div class="message-box">Hi [Contact Name]!
 
 [User Full Name] added you as an emergency contact in WellCheck.
 
+You have successfully consented to receive SMS emergency alerts.
+
 IMPORTANT: Save this number as "WellCheck Emergency" and enable Emergency Bypass in iOS (Edit Contact > Ringtone > Emergency Bypass) to receive alerts even on silent mode.
+
 You'll receive alerts ONLY if [User Full Name] misses a check-in.
 
 Learn more: wellcheckapp.com
@@ -95,14 +120,14 @@ Reply STOP to opt out</div>
                 <li>Replying <strong>UNSUBSCRIBE</strong></li>
                 <li>Replying <strong>HELP</strong> for more information</li>
             </ul>
-            <p>Opt-outs are processed immediately and permanently. Once opted out, the contact will not receive any further messages.</p>
+            <p>Opt-outs are processed immediately and permanently. Once opted out, the contact will not receive any further messages from WellCheck.</p>
         </div>
 
         <h2>Message Frequency</h2>
         <p>Contacts receive SMS messages only when:</p>
         <ul>
-            <li><strong>After accepting email consent:</strong> One welcome message</li>
-            <li><strong>During emergencies:</strong> When the user misses a check-in (rare)</li>
+            <li><strong>After accepting SMS consent:</strong> One welcome message with setup instructions</li>
+            <li><strong>During emergencies:</strong> When the WellCheck user misses a scheduled health check-in (rare)</li>
         </ul>
         <p><strong>Expected frequency:</strong> Very low - typically zero messages per month unless there's a genuine emergency.</p>
 
@@ -110,15 +135,26 @@ Reply STOP to opt out</div>
         <p>To manage consent, we store:</p>
         <ul>
             <li>Contact email address (for consent request)</li>
+            <li>Contact phone number (displayed on consent form for verification)</li>
             <li>Consent status (pending/confirmed/rejected)</li>
             <li>Consent timestamp</li>
-            <li>Phone number (only if consent accepted)</li>
             <li>User's full name (displayed in consent request)</li>
         </ul>
-        <p><strong>Data retention:</strong> Consent records stored for 7 days if no response, permanently if accepted or rejected.</p>
+        <p><strong>Data retention:</strong> Consent records stored for 7 days if no response (then expired), permanently if accepted or rejected.</p>
 
         <h2>Consent Expiration</h2>
         <p>Email consent requests expire after 7 days if not responded to. The contact can be re-added and will receive a new consent request.</p>
+
+        <h2>TCPA Compliance</h2>
+        <p>WellCheck's SMS consent process is designed to comply with the Telephone Consumer Protection Act (TCPA):</p>
+        <ul>
+            <li>✅ <strong>Explicit prior consent</strong> - Clear "I agree to receive SMS text messages" language</li>
+            <li>✅ <strong>Separate from other agreements</strong> - SMS consent is prominently displayed in its own section</li>
+            <li>✅ <strong>Clear disclosure</strong> - Message types, frequency, and rates disclosed upfront</li>
+            <li>✅ <strong>Easy opt-out</strong> - Reply STOP at any time</li>
+            <li>✅ <strong>No auto-consent</strong> - Contacts must actively click Accept button</li>
+            <li>✅ <strong>Documented process</strong> - All consent actions timestamped and stored</li>
+        </ul>
 
         <h2>Contact Information</h2>
         <p><strong>Service Name:</strong> WellCheck</p>
@@ -130,7 +166,7 @@ Reply STOP to opt out</div>
         <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
         <p style="color: var(--text-secondary); font-size: 14px;">
             This page documents WellCheck's SMS consent process for TCPA compliance.<br>
-            Last updated: January 2026
+            Last updated: January 30, 2026
         </p>
     </div>
 
