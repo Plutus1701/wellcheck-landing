@@ -7,6 +7,21 @@
     <meta name="description" content="How WellCheck collects consent for SMS emergency alerts.">
     <link rel="icon" href="../Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .screenshot {
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .screenshot-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="legal-container fade-in-up">
@@ -29,32 +44,24 @@
             <strong>Important:</strong> Contacts must explicitly accept via the consent form before receiving any SMS alerts. The consent form prominently displays: "I agree to receive SMS text messages from WellCheck" with detailed information about message types, frequency, and opt-out options.
         </div>
 
-        <h2>Sample Email Consent Request</h2>
-        <div class="message-box">Subject: [User Name] added you as an emergency contact
+        <h2>Email Consent Request</h2>
+        <p>Contacts receive a clear email explaining the consent request with a prominent button to review:</p>
+        <div class="screenshot-container">
+            <img src="https://raw.githubusercontent.com/Plutus1701/wellcheck-landing/main/Images/ConsentEmail.png" alt="WellCheck Consent Email" class="screenshot">
+        </div>
 
-Hi [Contact Name],
+        <h2>Web-Based Consent Form</h2>
+        <p>When contacts click the email link, they see a detailed consent form with explicit SMS messaging agreement:</p>
+        <div class="screenshot-container">
+            <img src="https://raw.githubusercontent.com/Plutus1701/wellcheck-landing/main/Images/ConsentRequest.png" alt="WellCheck Consent Form" class="screenshot">
+        </div>
 
-[User Full Name] has added you as an emergency contact in WellCheck, a health monitoring app.
-
-What you're consenting to:
-- Receive automated SMS alerts if they miss a health check-in
-- Alerts indicate potential medical emergency requiring immediate verification
-- Expected frequency: Rarely (hopefully never)
-
-[Review Consent Request Button]
-
-Learn more: wellcheckapp.com
-
-This consent request will expire in 7 days.</div>
-
-        <h2>Consent Form (Web-Based)</h2>
-        <p>When contacts click the email link, they see a detailed web form with:</p>
+        <h2>Key Consent Elements</h2>
         <ul>
-            <li>Clear explanation of the emergency contact role</li>
             <li><strong>Prominent SMS consent section</strong> with green border highlighting</li>
             <li>Explicit statement: <strong>"I agree to receive SMS text messages from WellCheck"</strong></li>
             <li>Phone number displayed for verification</li>
-            <li>List of message types they will receive:
+            <li>List of message types:
                 <ul>
                     <li>One welcome message after accepting</li>
                     <li>Emergency alert messages if user misses check-in</li>
@@ -63,20 +70,8 @@ This consent request will expire in 7 days.</div>
             </li>
             <li><strong>"Message and data rates may apply"</strong> disclaimer</li>
             <li><strong>"Reply STOP to opt out"</strong> instructions</li>
-            <li>Two buttons: <strong style="color: var(--accent-green);">"I Accept and Agree to Receive SMS Messages"</strong> or <strong style="color: #f44336;">"Decline"</strong></li>
+            <li>Clear action buttons: Accept or Decline</li>
         </ul>
-
-        <h2>Explicit SMS Consent Language</h2>
-        <div class="message-box" style="background: rgba(72, 187, 120, 0.1); border: 2px solid #48bb78;">
-<strong>📱 SMS Text Messaging Consent</strong>
-
-By clicking "Accept" below, <strong>I agree to receive SMS text messages from WellCheck</strong> at the phone number provided for emergency alert purposes. This includes:
-
-- <strong>One welcome message</strong> after accepting this consent
-- <strong>Emergency alert messages</strong> if [User Name] misses a scheduled health check-in
-- <strong>Expected frequency:</strong> Very rare (only during genuine emergencies)
-
-<strong>Message and data rates may apply.</strong> You can reply STOP at any time to opt out of future messages. Reply HELP for assistance. Carrier message and data rates may apply.</div>
 
         <h2>Sample Welcome SMS (Sent After Acceptance Only)</h2>
         <div class="message-box">Hi [Contact Name]!
