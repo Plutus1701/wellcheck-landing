@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - WellCheck</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/nav.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-functions-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="legal-container">
+            <a href="/" class="back-link">← Back to Home</a>
+            
+            <h1>Contact Us</h1>
+            
+            <p>Have a question, idea, or just want to share your experience with WellCheck? We'd love to hear from you.</p>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <form id="contactForm">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 600;">Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-glass); border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: var(--text-primary); font-size: 16px;"
+                        >
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 600;">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-glass); border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: var(--text-primary); font-size: 16px;"
+                        >
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="subject" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 600;">Subject *</label>
+                        <select 
+                            id="subject" 
+                            name="subject" 
+                            required 
+                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-glass); border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: var(--text-primary); font-size: 16px;"
+                        >
+                            <option value="">Select a subject...</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="App Improvement Ideas">App Improvement Ideas</option>
+                            <option value="Media Outreach">Media Outreach</option>
+                            <option value="Testimonials">Testimonials</option>
+                            <option value="General">General</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 600;">Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6" 
+                            required 
+                            style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-glass); border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: var(--text-primary); font-size: 16px; resize: vertical;"
+                        ></textarea>
+                    </div>
+                    
+                    <button 
+                        type="submit" 
+                        id="submitBtn"
+                        class="btn btn-primary" 
+                        style="width: 100%;"
+                    >
+                        <span id="submitText">Send Message</span>
+                        <span id="submitLoading" style="display: none;">Sending...</span>
+                    </button>
+                    
+                    <div id="successMessage" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(72, 187, 120, 0.2); border: 1px solid var(--accent-green); border-radius: 8px; color: var(--accent-green);">
+                        ✓ Message sent successfully! We'll respond within 24-48 hours.
+                    </div>
+                    
+                    <div id="errorMessage" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(244, 67, 54, 0.2); border: 1px solid #f44336; border-radius: 8px; color: #f44336;">
+                        ✗ Failed to send message. Please try again or email support@wellcheckapp.com directly.
+                    </div>
+                </form>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center; color: var(--text-secondary);">
+                <p>You can also reach us directly at:<br>
+                <a href="mailto:support@wellcheckapp.com" style="color: var(--accent-green);">support@wellcheckapp.com</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDWAqHJpU7Mu4MpQ9kABFbBUbsRfLZRa9Q",
+            authDomain: "wellcheck-85820.firebaseapp.com",
+            projectId: "wellcheck-85820",
+            storageBucket: "wellcheck-85820.firebasestorage.app",
+            messagingSenderId: "906326975033",
+            appId: "1:906326975033:web:f0fc9dfd02e01a6d1c9d13"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const functions = firebase.functions();
+        
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitLoading = document.getElementById('submitLoading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                // Call Firebase function
+                const sendContactEmail = functions.httpsCallable('sendContactEmail');
+                const result = await sendContactEmail(formData);
+                
+                if (result.data.success) {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitText.style.display = 'inline';
+                submitLoading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
