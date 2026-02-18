@@ -1,6 +1,5 @@
 // WellCheck - Shared Navigation Component
 // This script automatically adds the navigation bar to all pages
-
 document.addEventListener('DOMContentLoaded', function() {
     // Create navigation HTML
     const navHTML = `
@@ -12,10 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </button>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
                     <li><a href="/privacy">Privacy</a></li>
                     <li><a href="/terms">Terms</a></li>
                     <li><a href="/consent">SMS Consent</a></li>
-                    <li><a href="mailto:support@wellcheck.app">Support</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
