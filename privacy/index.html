@@ -50,20 +50,20 @@
 
         <h2>Data Stored for SMS Consent Management</h2>
         <div class="important">
-            <p>To manage email consent requests for SMS alerts, we temporarily store:</p>
+            <p>To manage email consent requests for SMS alerts, we store the following <strong>while a request is pending</strong>:</p>
             <ul>
-                <li><strong>Contact email addresses</strong> (to send consent requests)</li>
-                <li><strong>Contact names</strong> (to personalize consent emails)</li>
-                <li><strong>Your full name</strong> (displayed in consent requests)</li>
-                <li><strong>Contact phone numbers</strong> (for consent verification and SMS delivery)</li>
-                <li><strong>Consent status</strong> (pending/confirmed/rejected/expired)</li>
-                <li><strong>Consent timestamps</strong> (requested, responded, expired)</li>
+                <li><strong>Contact email address</strong> (to send and resend the consent request)</li>
+                <li><strong>Contact name</strong> (to personalize the consent email)</li>
+                <li><strong>Your full name</strong> (displayed in the consent request)</li>
+                <li><strong>Contact phone number</strong> (displayed on the consent page for verification)</li>
+                <li><strong>Consent status</strong> (pending)</li>
+                <li><strong>Request timestamp</strong></li>
             </ul>
-            <p><strong>Retention:</strong></p>
+            <p><strong>Once consent is resolved</strong> (accepted, declined, or expired after 7 days), we immediately delete the email address and names. Only the minimum needed for TCPA compliance is retained:</p>
             <ul>
-                <li>Pending requests: Auto-expired after 7 days if no response</li>
-                <li>Accepted/rejected: Stored permanently for TCPA compliance</li>
-                <li>Email addresses: Retained in consent record (not used for marketing)</li>
+                <li><strong>Contact phone number</strong></li>
+                <li><strong>Consent status</strong> (confirmed/rejected/expired)</li>
+                <li><strong>Timestamps</strong> (requested, responded)</li>
             </ul>
             <p><strong>Note:</strong> Emergency notes you enter in the app are stored only on your device and sent directly in the SMS alert at time of delivery. They are never stored on our servers.</p>
         </div>
@@ -115,10 +115,10 @@
 
         <h2>Data Retention</h2>
         <ul>
-            <li><strong>Email addresses:</strong> Retained in consent record for TCPA compliance</li>
-            <li><strong>Phone numbers:</strong> Stored while consent record is active</li>
-            <li><strong>Consent records:</strong> Stored permanently (compliance requirement)</li>
-            <li><strong>Opt-out records:</strong> Stored permanently (legal requirement)</li>
+            <li><strong>Email addresses &amp; names:</strong> Deleted as soon as consent is resolved (accepted, declined, or expired)</li>
+            <li><strong>Phone numbers:</strong> Retained after consent is confirmed (needed for SMS delivery)</li>
+            <li><strong>Consent status &amp; timestamps:</strong> Retained permanently (TCPA compliance)</li>
+            <li><strong>Opt-out records:</strong> Retained permanently (legal requirement)</li>
             <li><strong>Emergency notes:</strong> On-device only — never stored on our servers</li>
         </ul>
 
