@@ -24,6 +24,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Navigation Bar */
@@ -470,8 +471,20 @@ body {
         padding: 4rem 1rem 2rem;
     }
 
+    .container {
+        padding: 0 1rem;
+    }
+
+    .competitive-banner {
+        padding: 1.5rem 1rem;
+    }
+
     .competitive-banner .comparison {
         grid-template-columns: 1fr;
+    }
+
+    .privacy-section {
+        padding: 1.5rem 1rem !important;
     }
 
     .screenshots {
