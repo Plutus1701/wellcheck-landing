@@ -45,7 +45,7 @@
                 <div>
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🚨</div>
                     <h3 style="color: var(--primary-purple);">3. Help Gets Notified</h3>
-                    <p style="color: var(--text-secondary);">SMS alerts go to your contact list automatically. If the phone is opened, emergency calling interface appears instantly.</p>
+                    <p style="color: var(--text-secondary);">SMS alerts go to your entire contact list automatically. Urgent notifications repeat on your phone during the grace period to prompt a check-in.</p>
                 </div>
             </div>
         </div>
@@ -84,8 +84,15 @@
                 <p>Automatic alerts to contacts</p>
             </div>
             <div class="screenshot-item">
-                <img src="Images/EmergencyMode.avif" alt="Emergency calling interface with family photos">
-                <p>Emergency calling for kids</p>
+                <div style="background: linear-gradient(135deg, rgba(74, 158, 222, 0.1), rgba(60, 54, 121, 0.1));
+                            width: 250px; height: 541px; border-radius: 20px;
+                            display: flex; align-items: center; justify-content: center;
+                            border: 2px dashed var(--border-glass);">
+                    <span style="color: var(--text-secondary); font-size: 14px; text-align: center; padding: 2rem;">
+                        Widget &amp; Notification<br>Screenshot<br>Coming Soon
+                    </span>
+                </div>
+                <p>Check in from home screen or notification</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 2rem;">
@@ -125,7 +132,7 @@
                 <div class="card">
                     <h3 style="color: var(--accent-green);">✓ No Long Contracts</h3>
                     <p style="color: var(--text-secondary);">
-                        Month-to-month subscription at $2.99. Cancel anytime. 
+                        $4.99/month or $44.99/year — cancel anytime through the App Store.
                         No installation fees, no equipment to buy, no commitment required.
                     </p>
                 </div>
@@ -182,12 +189,11 @@
             </div>
             
             <div style="text-align: center; margin: 3rem auto; padding: 2rem; background: linear-gradient(135deg, rgba(66, 165, 245, 0.1), rgba(156, 39, 176, 0.1)); border-radius: 16px; max-width: 800px; border: 1px solid var(--border-glass);">
-                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Bonus Feature: Emergency Calling for Kids</h3>
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Bonus: Night Mode</h3>
                 <p style="color: var(--text-secondary); line-height: 1.7;">
-                    Solo parents can activate <strong>Night Mode</strong> before bed — putting an emergency lock screen 
-                    on the phone with large photo buttons. If something happens to you overnight, young children can 
-                    tap family photos to call for help. They're not stuck alone for hours until someone notices you 
-                    haven't checked in.
+                    Activate <strong>Night Mode</strong> before bed to pause check-in alerts while you sleep.
+                    Your phone is protected with Face ID / Touch ID so there are no accidental missed check-ins overnight.
+                    Check-ins resume automatically in the morning.
                 </p>
             </div>
         </div>
@@ -215,12 +221,12 @@
                     <p>Include critical information: "I have diabetes" or "Check the basement first" — details that save time.</p>
                 </div>
                 <div class="card">
-                    <h3>Practice Mode</h3>
-                    <p>Test the emergency flow without making actual calls. Perfect for training family members or testing your setup.</p>
+                    <h3>Home Screen Widgets</h3>
+                    <p>Check in directly from your home screen or lock screen — no need to open the app. iOS 17+ supports background check-ins from the widget button.</p>
                 </div>
                 <div class="card">
-                    <h3>Night Mode Lock Screen</h3>
-                    <p>Pre-activate emergency interface with family photos. Young children can call for help if you're incapacitated overnight.</p>
+                    <h3>Night Mode</h3>
+                    <p>Pause check-in alerts overnight with biometric lock. No accidental missed check-ins while you sleep. Automatically resumes in the morning.</p>
                 </div>
             </div>
         </div>
@@ -278,15 +284,37 @@
     </div>
 
     <!-- Pricing -->
-    <div class="container">
-        <div class="pricing fade-in-up">
+    <div class="container" id="pricing">
+        <div class="section fade-in-up" style="text-align: center;">
             <h2>Simple, Honest Pricing</h2>
-            <div class="price">$2.99/month</div>
-            <div class="price-detail">or $29.99/year (save 3 months)</div>
-            <p style="color: var(--text-secondary); margin: 2rem 0;">
-                All features included. No hidden fees. No contracts. Cancel anytime.
+            <p style="color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem;">
+                All features included. No hidden fees. Cancel anytime.
             </p>
-            <a href="#download" class="btn btn-primary">Get Started</a>
+
+            <!-- Annual Card (featured) -->
+            <div style="position: relative; display: inline-block; width: 100%; max-width: 480px; margin: 0 auto 1.5rem;">
+                <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 1;">
+                    <span style="background: var(--accent-green); color: #0A0A0F; font-weight: 800; font-size: 12px; padding: 4px 16px; border-radius: 20px; letter-spacing: 0.5px;">3 MONTHS FREE</span>
+                </div>
+                <div style="border: 2px solid var(--accent-green); border-radius: 20px; padding: 2.5rem 2rem; background: linear-gradient(135deg, rgba(72, 187, 120, 0.08), rgba(74, 158, 222, 0.08));">
+                    <div style="font-size: 14px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Annual Plan</div>
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-green); line-height: 1;">$44.99</div>
+                    <div style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">per year &nbsp;·&nbsp; billed once</div>
+                    <a href="#download" class="btn btn-primary" style="display: block; width: 100%; box-sizing: border-box;">Get Started</a>
+                    <p style="color: var(--text-secondary); font-size: 13px; margin-top: 1rem; margin-bottom: 0;">Equivalent to $3.75/month</p>
+                </div>
+            </div>
+
+            <!-- Monthly option -->
+            <div style="max-width: 480px; margin: 0 auto; padding: 1.5rem 2rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); border-radius: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="text-align: left;">
+                        <div style="font-size: 14px; color: var(--text-secondary);">Monthly Plan</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">$4.99<span style="font-size: 0.9rem; font-weight: 400; color: var(--text-secondary);">/month</span></div>
+                    </div>
+                    <a href="#download" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 14px;">Subscribe</a>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -130,12 +130,13 @@ Reply STOP to opt out</div>
         <p>To manage consent, we store:</p>
         <ul>
             <li>Contact email address (for consent request)</li>
+            <li>Contact name (to personalize consent email)</li>
             <li>Contact phone number (displayed on consent form for verification)</li>
-            <li>Consent status (pending/confirmed/rejected)</li>
-            <li>Consent timestamp</li>
+            <li>Consent status (pending/confirmed/rejected/expired)</li>
+            <li>Consent timestamps (requested, responded)</li>
             <li>User's full name (displayed in consent request)</li>
         </ul>
-        <p><strong>Data retention:</strong> Consent records stored for 7 days if no response (then expired), permanently if accepted or rejected.</p>
+        <p><strong>Data retention:</strong> Pending consent records auto-expire after 7 days if no response. Accepted and rejected records are stored permanently for TCPA compliance.</p>
 
         <h2>Consent Expiration</h2>
         <p>Email consent requests expire after 7 days if not responded to. The contact can be re-added and will receive a new consent request.</p>
@@ -161,7 +162,7 @@ Reply STOP to opt out</div>
         <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-glass);">
         <p style="color: var(--text-secondary); font-size: 14px;">
             This page documents WellCheck's SMS consent process for TCPA compliance.<br>
-            Last updated: January 30, 2026
+            Last updated: March 2026
         </p>
     </div>
 

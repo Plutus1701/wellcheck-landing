@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WellCheck - App Tour</title>
-    <meta name="description" content="Complete walkthrough of WellCheck features - setup, customization, and emergency calling.">
+    <meta name="description" content="Complete walkthrough of WellCheck features - setup, check-ins, widgets, and automated emergency SMS alerts.">
     <link rel="icon" href="../Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles.css">
     <style>
@@ -139,7 +139,7 @@
                         margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(72, 187, 120, 0.3);">
             <h1>How WellCheck Works</h1>
             <p style="color: var(--text-secondary); font-size: 20px; margin-top: 1rem;">
-                A complete walkthrough of setup, customization, and emergency features
+                A complete walkthrough of setup, check-ins, widgets, and automated emergency SMS alerts
             </p>
             <div style="margin-top: 2rem;">
                 <a href="/" class="btn btn-secondary">← Back to Home</a>
@@ -179,12 +179,12 @@
             </div>
             
             <div class="feature-callout">
-                <h3>Complete Control Over Customization</h3>
+                <h3>Complete Control Over Your Safety Net</h3>
                 <ul>
-                    <li><strong>Change contact names in the app</strong> - Your phone's contact list stays unchanged</li>
-                    <li><strong>Choose different photos</strong> - Perfect for kids who recognize faces better than formal headshots</li>
-                    <li><strong>Reorder priorities</strong> - Drag to set who gets called first</li>
-                    <li><strong>Add notes for each contact</strong> - Special instructions for emergencies</li>
+                    <li><strong>Import from Contacts</strong> - Add trusted adults from your existing address book</li>
+                    <li><strong>Email consent system</strong> - Contacts must accept before receiving any SMS alerts</li>
+                    <li><strong>Reorder priorities</strong> - Drag to set who gets alerted first</li>
+                    <li><strong>Consent status badges</strong> - See at a glance who is confirmed, pending, or expired</li>
                 </ul>
             </div>
             
@@ -267,9 +267,15 @@
                 <h3>How Check-Ins Work</h3>
                 <ul>
                     <li><strong>Get reminded</strong> - Notification arrives at your scheduled time</li>
-                    <li><strong>One tap</strong> - Opens the app and confirms you're safe</li>
-                    <li><strong>Grace period starts</strong> - If you don't respond, you get 5-30 minutes</li>
-                    <li><strong>Automatic escalation</strong> - After grace period, emergency mode activates</li>
+                    <li><strong>Multiple ways to check in:</strong>
+                        <ul>
+                            <li>Tap the "I'm OK ✓" button on the notification itself (no app open)</li>
+                            <li>Tap the Check In button on the home screen widget (iOS 17+, no app open)</li>
+                            <li>Open the app and tap Check In</li>
+                        </ul>
+                    </li>
+                    <li><strong>Grace period starts</strong> - If you don't respond, you get 5-30 minutes with repeating urgent alerts</li>
+                    <li><strong>Automatic SMS</strong> - After grace period ends, your confirmed contacts receive emergency alerts</li>
                 </ul>
             </div>
         </div>
@@ -281,9 +287,9 @@
             <div class="tour-header">
                 <div class="step-number">5</div>
                 <h2>When You Miss a Check-In</h2>
-                <p>WellCheck automatically alerts your contacts via SMS. If the phone is opened, emergency calling appears immediately.</p>
+                <p>WellCheck automatically alerts your contacts via SMS — no button to press, no action required.</p>
             </div>
-            
+
             <div class="tour-screenshots">
                 <div class="tour-screenshot">
                     <div class="placeholder emergency">
@@ -292,41 +298,22 @@
                     <p>Automatic SMS to your contact list</p>
                 </div>
                 <div class="tour-screenshot">
-                    <img src="/Images/EmergencyMode.avif" alt="Emergency calling screen" loading="lazy">
-                    <p>Emergency calling interface activates</p>
+                    <div class="placeholder emergency">
+                        <span>Grace Period<br>Notifications<br>Coming Soon</span>
+                    </div>
+                    <p>Repeating urgent alerts during grace period</p>
                 </div>
             </div>
-            
+
             <div class="feature-callout" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));">
                 <h3 style="color: #E91E63;">What Happens in an Emergency</h3>
                 <ul>
-                    <li><strong>Immediate SMS alerts</strong> - Your customized contact list receives texts from WellCheck's dedicated number</li>
+                    <li><strong>Urgent notifications</strong> - Repeating alerts fire on your phone during the grace period to prompt a check-in</li>
+                    <li><strong>Automatic SMS alerts</strong> - After the grace period, all confirmed contacts receive a text from WellCheck's dedicated number</li>
                     <li><strong>Real text messages</strong> - Not from your phone, so contacts take them seriously</li>
-                    <li><strong>Custom emergency info</strong> - Include critical details like medical conditions or locations to check</li>
-                    <li><strong>Repeated notifications</strong> - Phone alerts every 15 seconds to wake the screen</li>
-                    <li><strong>Emergency calling ready</strong> - When phone is opened, large photo buttons appear for calling help</li>
-                    <li><strong>Works when unconscious</strong> - SMS alerts go out automatically, no button to push</li>
-                </ul>
-            </div>
-            
-            <div class="video-container">
-                <video autoplay muted loop playsinline controls poster="/Images/EmergencyMode.avif" style="max-height: 500px; height: auto;">
-                    <source src="/Movies/EmergencyMode.mp4" type="video/mp4">
-                    Your browser doesn't support video playback.
-                </video>
-                <p style="color: var(--text-secondary); margin-top: 1rem;">
-                    Emergency calling demo - tap play if it doesn't start automatically
-                </p>
-            </div>
-            
-            <div class="feature-callout">
-                <h3>Emergency Calling Features</h3>
-                <ul>
-                    <li><strong>Progressive calling</strong> - Large photos show who to call next</li>
-                    <li><strong>Simple for kids</strong> - Just tap the photo, then tap the blue iOS call button</li>
-                    <li><strong>Tested with young children</strong> - Works with kids as young as 3 years old</li>
-                    <li><strong>911 backup</strong> - Appears after all contacts have been tried</li>
-                    <li><strong>Practice mode available</strong> - Test the flow without making real calls</li>
+                    <li><strong>Custom emergency info</strong> - Your emergency notes (medical conditions, location, callback number) are included in every SMS</li>
+                    <li><strong>Two-tier alerts</strong> - A follow-up SMS is sent 15 minutes later if you're still in emergency mode</li>
+                    <li><strong>Works when unconscious</strong> - SMS alerts go out automatically, no button to push, no device to wear</li>
                 </ul>
             </div>
         </div>
@@ -337,28 +324,30 @@
         <div class="container">
             <div class="tour-header">
                 <div class="step-number">6</div>
-                <h2>Night Mode for Solo Parents</h2>
-                <p>Pre-activate emergency calling before bed - kids can access help if something happens overnight</p>
+                <h2>Night Mode</h2>
+                <p>Sleep without worrying about accidental missed check-ins</p>
             </div>
-            
+
             <div class="tour-screenshots">
                 <div class="tour-screenshot">
                     <img src="/Images/Onboarding08.avif" alt="Night mode" loading="lazy">
-                    <p><strong>Night Mode:</strong> Lock screen with emergency contacts</p>
+                    <p><strong>Night Mode:</strong> Pauses check-ins while you sleep</p>
                 </div>
                 <div class="tour-screenshot">
-                    <img src="/Images/EmergencyMode.avif" alt="Emergency calling" loading="lazy">
-                    <p>Kids tap family photos to call for help</p>
+                    <div class="placeholder">
+                        <span>Night Mode<br>Active Screen<br>Coming Soon</span>
+                    </div>
+                    <p>Biometric lock prevents accidental check-ins</p>
                 </div>
             </div>
-            
+
             <div class="feature-callout" style="background: linear-gradient(135deg, rgba(66, 165, 245, 0.1), rgba(156, 39, 176, 0.1));">
-                <h3 style="color: var(--primary-blue);">Why Night Mode Matters</h3>
+                <h3 style="color: var(--primary-blue);">How Night Mode Works</h3>
                 <ul>
-                    <li><strong>For solo parents</strong> - What if you have a medical emergency overnight?</li>
-                    <li><strong>Kids aren't stuck alone</strong> - They can call for help immediately, not hours later when someone notices you haven't checked in</li>
-                    <li><strong>Biometric lock</strong> - Kids can't accidentally exit the emergency screen</li>
-                    <li><strong>Simple interface</strong> - Just tap a family member's photo to call them</li>
+                    <li><strong>Activate before bed</strong> - Pauses check-in alerts and timers while you sleep</li>
+                    <li><strong>Biometric lock</strong> - Face ID or Touch ID required to exit — no accidental check-in misses</li>
+                    <li><strong>Optional bedtime alarm</strong> - Set a time to automatically activate Night Mode each night</li>
+                    <li><strong>Optional morning alarm</strong> - Resumes check-ins at a set time to start your day</li>
                 </ul>
             </div>
         </div>
@@ -369,19 +358,33 @@
         <div class="container">
             <div class="tour-header">
                 <div class="step-number">7</div>
-                <h2>Additional Features</h2>
-                <p>Practice mode, 911 access, and more</p>
+                <h2>Widgets &amp; Quick Check-Ins</h2>
+                <p>Check in without even opening the app</p>
             </div>
-            
+
             <div class="tour-screenshots">
                 <div class="tour-screenshot">
-                    <img src="/Images/Onboarding07.avif" alt="Practice mode" loading="lazy">
-                    <p><strong>Practice Mode:</strong> Test without making calls</p>
+                    <div class="placeholder">
+                        <span>Home Screen<br>Widget<br>Coming Soon</span>
+                    </div>
+                    <p><strong>Home Screen Widget:</strong> One-tap check-in (iOS 17+)</p>
                 </div>
                 <div class="tour-screenshot">
-                    <img src="/Images/Onboarding09.avif" alt="Emergency services" loading="lazy">
-                    <p><strong>911 Access:</strong> Always available as backup</p>
+                    <div class="placeholder">
+                        <span>Lock Screen<br>Widget<br>Coming Soon</span>
+                    </div>
+                    <p><strong>Lock Screen Widget:</strong> Next check-in time at a glance</p>
                 </div>
+            </div>
+
+            <div class="feature-callout">
+                <h3>Check In From Anywhere</h3>
+                <ul>
+                    <li><strong>Home screen widget</strong> - Tap "Check In ✓" on the widget (iOS 17+: runs silently, app never opens)</li>
+                    <li><strong>Lock screen widgets</strong> - Circular, rectangular, and inline — see your next check-in time without unlocking</li>
+                    <li><strong>Notification action</strong> - Swipe the check-in notification and tap "I'm OK ✓" — no app needed</li>
+                    <li><strong>Morning &amp; bedtime alarms</strong> - Optional alarms to start your day and activate Night Mode at bedtime</li>
+                </ul>
             </div>
         </div>
     </div>

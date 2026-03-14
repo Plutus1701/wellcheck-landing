@@ -13,7 +13,7 @@
         <a href="/" class="back-link">← Back to Home</a>
         
         <h1>Privacy Policy</h1>
-        <p style="color: var(--text-secondary);"><strong>Last Updated:</strong> January 2026</p>
+        <p style="color: var(--text-secondary);"><strong>Last Updated:</strong> March 2026</p>
 
         <div class="highlight">
             <strong>Privacy-First Design:</strong> WellCheck stores the absolute minimum data needed to provide automated emergency alerts. Your personal information (names, photos, settings) stays on your device.
@@ -55,17 +55,17 @@
                 <li><strong>Contact email addresses</strong> (to send consent requests)</li>
                 <li><strong>Contact names</strong> (to personalize consent emails)</li>
                 <li><strong>Your full name</strong> (displayed in consent requests)</li>
+                <li><strong>Contact phone numbers</strong> (for consent verification and SMS delivery)</li>
                 <li><strong>Consent status</strong> (pending/confirmed/rejected/expired)</li>
-                <li><strong>Emergency notes</strong> (optional custom message included in SMS alerts)</li>
-                <li><strong>Phone numbers</strong> (only after consent is accepted)</li>
+                <li><strong>Consent timestamps</strong> (requested, responded, expired)</li>
             </ul>
             <p><strong>Retention:</strong></p>
             <ul>
-                <li>Pending requests: Deleted after 7 days if no response</li>
-                <li>Accepted/rejected: Stored permanently for compliance</li>
-                <li>Email addresses: Deleted after consent processed (not used for marketing)</li>
-                <li>Emergency notes: Stored while contact is active, deleted when contact removed</li>
+                <li>Pending requests: Auto-expired after 7 days if no response</li>
+                <li>Accepted/rejected: Stored permanently for TCPA compliance</li>
+                <li>Email addresses: Retained in consent record (not used for marketing)</li>
             </ul>
+            <p><strong>Note:</strong> Emergency notes you enter in the app are stored only on your device and sent directly in the SMS alert at time of delivery. They are never stored on our servers.</p>
         </div>
 
         <h2>Why Backend Storage is Necessary</h2>
@@ -111,22 +111,22 @@
         </ul>
 
         <h2>Children's Privacy</h2>
-        <p>WellCheck can be used by children for emergency calling but must be set up by an adult. No personal information about children is collected or stored on our servers.</p>
+        <p>WellCheck must be set up by an adult. The app does not collect or store any personal information about children. No children's data is transmitted to our servers.</p>
 
         <h2>Data Retention</h2>
         <ul>
-            <li><strong>Email addresses:</strong> Stored during consent process (up to 7 days), then deleted</li>
-            <li><strong>Phone numbers:</strong> Stored while actively used for SMS delivery</li>
+            <li><strong>Email addresses:</strong> Retained in consent record for TCPA compliance</li>
+            <li><strong>Phone numbers:</strong> Stored while consent record is active</li>
             <li><strong>Consent records:</strong> Stored permanently (compliance requirement)</li>
             <li><strong>Opt-out records:</strong> Stored permanently (legal requirement)</li>
-            <li><strong>Emergency notes:</strong> Stored while contact is active, deleted when contact removed</li>
+            <li><strong>Emergency notes:</strong> On-device only — never stored on our servers</li>
         </ul>
 
         <h2>Your Choices</h2>
         <p>If you prefer complete privacy with no backend storage, you can:</p>
         <ul>
-            <li>Use WellCheck without SMS alerts (emergency calling still works)</li>
-            <li>Don't add emergency notes (keep them on your device only)</li>
+            <li>Use WellCheck without SMS alerts (check-in timer and notifications still work without contacts)</li>
+            <li>Emergency notes are always on-device only — they require no backend action to protect</li>
         </ul>
 
         <h2>Changes to This Policy</h2>
