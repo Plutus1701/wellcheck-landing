@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - WellCheck</title>
+    <meta name="description" content="Frequently asked questions about WellCheck — how check-ins work, what your contacts need to do, privacy, billing, and more.">
+    <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/nav.js"></script>
+    <style>
+        .faq-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        details {
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            margin-bottom: 0.6rem;
+            background: var(--bg-card);
+            transition: background 0.2s;
+        }
+
+        details[open] {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        summary {
+            padding: 1rem 1.25rem;
+            font-weight: 500;
+            font-size: 0.975rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer p + p {
+            margin-top: 0.75rem;
+        }
+
+        .faq-answer strong {
+            color: var(--text-primary);
+        }
+
+        .faq-answer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="legal-container">
+            <a href="/" class="back-link">← Back to Home</a>
+
+            <h1>Frequently Asked Questions</h1>
+            <p style="color: var(--text-secondary); margin-bottom: 2.5rem;">Everything you need to know about WellCheck. Can't find your answer? <a href="/contact" style="color: var(--primary-blue);">Get in touch.</a></p>
+
+            <!-- GETTING STARTED -->
+            <div class="faq-section">
+                <h2>Getting Started</h2>
+
+                <details>
+                    <summary>What is WellCheck?</summary>
+                    <div class="faq-answer">
+                        <p>WellCheck is a safety check-in app for iPhone. You set a schedule — either a repeating interval (e.g. every 6 hours) or specific times each day — and WellCheck sends you a notification asking you to check in. If you miss one, it waits through a grace period, then automatically sends an SMS alert to your trusted contacts.</p>
+                        <p>No one has to watch a screen. No one has to remember to check on you. The app handles it automatically.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Who is WellCheck for?</summary>
+                    <div class="faq-answer">
+                        <p>Anyone who spends time alone and wants a safety net. Common use cases include:</p>
+                        <p>
+                            • Solo parents home with young kids<br>
+                            • People who live alone, especially seniors<br>
+                            • People with medical conditions (epilepsy, heart conditions, diabetes, etc.)<br>
+                            • Remote or solo workers, hikers, and outdoor enthusiasts<br>
+                            • Night shift workers or anyone with an irregular schedule
+                        </p>
+                        <p>If there's a chance you could fall, have a medical event, or need help without being able to call for it, WellCheck is designed for you.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does WellCheck call 911?</summary>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> WellCheck sends an SMS to your trusted contacts — people you choose. It does not contact emergency services directly. Your contacts are responsible for deciding whether to call 911 or otherwise respond.</p>
+                        <p>WellCheck is a safety net, not a substitute for emergency services. If you have a medical condition that may require a rapid 911 response, talk to your doctor about whether WellCheck fits your needs.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What does WellCheck require to work?</summary>
+                    <div class="faq-answer">
+                        <p>Your iPhone must be powered on and connected to the internet (cellular or Wi-Fi) for alerts to be sent. If your phone is off, the battery dies, or you have no signal, WellCheck cannot send emergency SMS messages.</p>
+                        <p>WellCheck requires iOS 16 or later.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- YOUR CONTACTS -->
+            <div class="faq-section">
+                <h2>Your Contacts</h2>
+
+                <details>
+                    <summary>Do my contacts need to download WellCheck?</summary>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> Your contacts never need to download anything. They just need to be able to receive text messages. Any phone — iPhone, Android, flip phone — works fine.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What do my contacts have to do to be set up?</summary>
+                    <div class="faq-answer">
+                        <p>When you add a contact, WellCheck sends them a consent email with a simple opt-in link. They click the link, confirm they want to receive alerts, and that's it. The whole process takes about 30 seconds.</p>
+                        <p>Their status in your app will show as <strong>Pending</strong> until they accept. Once they click the link, it updates to <strong>Confirmed</strong> automatically.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Why does WellCheck need my contacts' email addresses?</summary>
+                    <div class="faq-answer">
+                        <p>Before WellCheck can send anyone an emergency SMS, they need to consent to receiving it. This is both a legal requirement (TCPA compliance) and just the right thing to do — your contacts should know they're being added and agree to receive alerts.</p>
+                        <p>The consent email contains a link they click to opt in. Once they do, their phone number is kept on file for SMS delivery. Their name and email are deleted from our servers within 7 days.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What if a contact doesn't have an email address in my phone?</summary>
+                    <div class="faq-answer">
+                        <p>WellCheck will offer to open a pre-written text message you can send them directly, asking for their email. Once they reply with it, add it to their contact card and try adding them to WellCheck again.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What if a contact never accepts the consent email?</summary>
+                    <div class="faq-answer">
+                        <p>They'll stay in your contact list with a <strong>Pending</strong> status and won't receive emergency alerts until they accept. Consent requests expire after 7 days, at which point the status changes to <strong>Expired</strong>. You can resend the request from the contact's detail page anytime.</p>
+                        <p>You need at least one <strong>Confirmed</strong> contact before the check-in button activates.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What does the emergency SMS say?</summary>
+                    <div class="faq-answer">
+                        <p>Something like: <em>"URGENT: [Your Name] has missed their WellCheck check-in. Last check-in was at [time]. Please try to reach them immediately. Call: [your phone number]."</em></p>
+                        <p>If you've added emergency notes (medications, medical conditions, entry codes, etc.) in Settings, those are included too. A follow-up SMS is sent 15 minutes later if the alert hasn't been cleared.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How many contacts can I add?</summary>
+                    <div class="faq-answer">
+                        <p>There's no hard limit. We recommend adding at least 3 contacts so there's redundancy — if one person misses the message, others will still be notified. All confirmed contacts receive the SMS simultaneously when an alert fires.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- CHECK-INS -->
+            <div class="faq-section">
+                <h2>Check-Ins</h2>
+
+                <details>
+                    <summary>What's the difference between Interval and Scheduled modes?</summary>
+                    <div class="faq-answer">
+                        <p><strong>Interval mode</strong> checks in on a repeating timer — every 1 to 12 hours. You set a start time and an end time, and WellCheck runs check-ins between those two times each day. Good if your schedule varies day to day.</p>
+                        <p><strong>Scheduled mode</strong> lets you set specific times each day (e.g. 8:00 AM, 2:00 PM, 8:00 PM). Good if you follow a consistent daily routine and want check-ins tied to natural transitions in your day.</p>
+                        <p>You can switch between modes anytime in Settings.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What is the grace period?</summary>
+                    <div class="faq-answer">
+                        <p>The grace period is extra time after a missed check-in before your contacts are alerted. It's designed to prevent false alarms — if you're in the shower, driving, or just briefly unavailable, you have time to check in before anyone gets an SMS.</p>
+                        <p>You set the grace period duration in Settings (5–30 minutes). During the grace period, your phone receives urgent, repeating notifications prompting you to check in. If you don't respond, the alert fires when time runs out.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Can I check in without opening the app?</summary>
+                    <div class="faq-answer">
+                        <p>Yes — three ways:</p>
+                        <p>
+                            • <strong>Notification action:</strong> Swipe or long-press the check-in notification and tap "I'm OK ✓." No app opens.<br>
+                            • <strong>Home screen widget:</strong> Add the WellCheck widget to your home screen. On iOS 17+, the button checks you in directly from your home screen without opening the app.<br>
+                            • <strong>Lock screen widget:</strong> Tap the lock screen widget to open the app directly to the check-in button.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What if I accidentally miss a check-in?</summary>
+                    <div class="faq-answer">
+                        <p>Just check in as soon as you can — either by tapping the button in the app, the notification action, or the widget. Checking in during the grace period cancels the alert entirely. Checking in after the grace period ends will clear the emergency mode and stop a second SMS from being sent, but the first SMS has likely already gone out.</p>
+                        <p>If your contacts do get an accidental alert, just let them know you're fine. It happens.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What is night mode?</summary>
+                    <div class="faq-answer">
+                        <p>In interval mode, you can set a "last check-in" time (e.g. 10:00 PM). When that alarm fires, WellCheck pauses check-ins for the night so you're not woken up by notifications while sleeping. Check-ins resume automatically at your "first check-in" time the next morning.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- PRIVACY & DATA -->
+            <div class="faq-section">
+                <h2>Privacy &amp; Data</h2>
+
+                <details>
+                    <summary>What data does WellCheck store?</summary>
+                    <div class="faq-answer">
+                        <p>Almost everything stays on your device: your check-in schedule, history, settings, and emergency notes.</p>
+                        <p>The only data stored on our servers is your contacts' <strong>phone numbers</strong>, which are required to send SMS alerts. Contact names and email addresses are stored temporarily during the consent process (up to 7 days) and then deleted.</p>
+                        <p>See our full <a href="/privacy">Privacy Policy</a> for details.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does WellCheck sell or share my data?</summary>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> WellCheck does not sell, share, or monetize your data in any way. The only third-party service that receives any data is Twilio, which handles SMS delivery — and they only receive the phone number and message content needed to send the text.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Are emergency notes (medications, conditions, etc.) private?</summary>
+                    <div class="faq-answer">
+                        <p>Emergency notes are included in the SMS alert sent to your contacts, so they're transmitted over SMS — which is not encrypted. Only add information you're comfortable with being sent as a plain text message. WellCheck does not store emergency notes on its servers; they live only on your device.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- BILLING -->
+            <div class="faq-section">
+                <h2>Billing</h2>
+
+                <details>
+                    <summary>How much does WellCheck cost?</summary>
+                    <div class="faq-answer">
+                        <p>WellCheck is <strong>$4.99/month</strong> or <strong>$44.99/year</strong> (save ~25%). Subscriptions are managed through the App Store.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Is there a free trial?</summary>
+                    <div class="faq-answer">
+                        <p>Not currently. If you're a beta tester on TestFlight, the subscription is bypassed automatically so you can test all features at no cost.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I cancel?</summary>
+                    <div class="faq-answer">
+                        <p>Open the App Store → tap your profile photo → Subscriptions → WellCheck → Cancel. Apple handles all billing; WellCheck has no access to your payment information.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- TECHNICAL -->
+            <div class="faq-section">
+                <h2>Technical</h2>
+
+                <details>
+                    <summary>What iPhone and iOS version does WellCheck require?</summary>
+                    <div class="faq-answer">
+                        <p>WellCheck requires iOS 16 or later. The interactive home screen widget requires iOS 17 or later. Any iPhone that supports iOS 16 will work — that's iPhone 8 and newer.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does WellCheck work outside the United States?</summary>
+                    <div class="faq-answer">
+                        <p>Currently, WellCheck is US-only. Emergency SMS alerts are sent via a US toll-free number (Twilio), so contacts must have US phone numbers to receive them.</p>
+                        <p>If you're a US-based user traveling abroad temporarily, the app will continue to work as long as your phone has internet access — but your contacts still need US numbers.</p>
+                        <p>International support is on the roadmap.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Will WellCheck drain my battery?</summary>
+                    <div class="faq-answer">
+                        <p>WellCheck uses iOS's built-in notification scheduling system rather than running a background process continuously, so battery impact is minimal. The app does no significant background work between check-ins.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Still have a question?</p>
+                <a href="/contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
