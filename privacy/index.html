@@ -36,14 +36,14 @@
             <ul>
                 <li><strong>Emergency contact phone numbers</strong> (to deliver SMS)</li>
                 <li><strong>Opt-out records</strong> (phone numbers that opted out - legal requirement)</li>
-                <li><strong>Device push tokens</strong> (to notify you if a contact opts out)</li>
+                <li><strong>Device push tokens</strong> — Used to notify you if a contact opts out, and temporarily held in a Cloud Task payload scheduled at check-in time. When the grace period ends, the Cloud Task sends emergency SMS alerts directly via Twilio and then delivers a push notification to update app state. The token is stored only in the task payload and is automatically destroyed when you check in (task cancelled) or when the trigger fires (task executes). It is never written to Firestore or any persistent database.</li>
             </ul>
             <p><strong>What we DON'T store:</strong></p>
             <ul>
                 <li>Contact photos</li>
                 <li>Device identifiers beyond push tokens</li>
                 <li>Usage patterns or analytics</li>
-                <li>Location data</li>
+                <li>Location data (if location sharing is enabled, your GPS snapshot is included in the emergency task payload for that check-in cycle only — it is never written to a persistent database)</li>
                 <li>Anything else</li>
             </ul>
         </div>
@@ -65,7 +65,7 @@
                 <li><strong>Consent status</strong> (confirmed/rejected/expired)</li>
                 <li><strong>Timestamps</strong> (requested, responded)</li>
             </ul>
-            <p><strong>Note:</strong> Emergency notes you enter in the app are stored only on your device and sent directly in the SMS alert at time of delivery. They are never stored on our servers.</p>
+            <p><strong>Note:</strong> If you have enabled location sharing, your GPS coordinates at last check-in are included in the Cloud Task payload for that check-in cycle. They are automatically discarded when you check in successfully (task cancelled) or when the emergency trigger fires (task executes). They are never written to Firestore or any persistent database.</p>
         </div>
 
         <h2>Why Backend Storage is Necessary</h2>
@@ -86,10 +86,12 @@
         <h2>Permissions Required</h2>
         
         <p><strong>Contacts:</strong> To select trusted contacts from your existing contacts</p>
-        
+
         <p><strong>Photos (Optional):</strong> To choose custom photos for contacts</p>
-        
+
         <p><strong>Notifications:</strong> For check-in reminders and emergency alerts</p>
+
+        <p><strong>Location (Optional):</strong> To include your last known GPS location in emergency alerts. Only requested if you enable location sharing in Settings. Location is captured at check-in time only — never tracked continuously.</p>
 
         <p>You can manage permissions in: <strong>Settings → Privacy → WellCheck</strong></p>
 
@@ -119,14 +121,14 @@
             <li><strong>Phone numbers:</strong> Retained after consent is confirmed (needed for SMS delivery)</li>
             <li><strong>Consent status &amp; timestamps:</strong> Retained permanently (TCPA compliance)</li>
             <li><strong>Opt-out records:</strong> Retained permanently (legal requirement)</li>
-            <li><strong>Emergency notes:</strong> On-device only — never stored on our servers</li>
+            <li><strong>Emergency wakeup push token &amp; optional location:</strong> Stored only in a Cloud Task payload. Automatically deleted when you check in (task cancelled) or when the emergency trigger fires (task executes) — never persisted longer than one check-in cycle.</li>
         </ul>
 
         <h2>Your Choices</h2>
         <p>If you prefer complete privacy with no backend storage, you can:</p>
         <ul>
             <li>Use WellCheck without SMS alerts (check-in timer and notifications still work without contacts)</li>
-            <li>Emergency notes are always on-device only — they require no backend action to protect</li>
+            <li>Keep location sharing disabled (the default) — no GPS data ever leaves your device</li>
         </ul>
 
         <h2>Changes to This Policy</h2>

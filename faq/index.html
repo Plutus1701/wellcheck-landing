@@ -186,8 +186,9 @@
                 <details>
                     <summary>What does the emergency SMS say?</summary>
                     <div class="faq-answer">
-                        <p>Something like: <em>"URGENT: [Your Name] has missed their WellCheck check-in. Last check-in was at [time]. Please try to reach them immediately. Call: [your phone number]."</em></p>
-                        <p>If you've added emergency notes (medications, medical conditions, entry codes, etc.) in Settings, those are included too. A follow-up SMS is sent 15 minutes later if the alert hasn't been cleared.</p>
+                        <p>The alert includes your name, the scheduled check-in time, when the grace period ended, and the time the alert was sent. Your contacts are asked to verify you're safe and given your phone number to call immediately.</p>
+                        <p>If you've enabled <strong>location sharing</strong> in Settings, your last known location at the time of your most recent check-in is included as a Google Maps link — so your contacts know where to look for you.</p>
+                        <p>A follow-up SMS is sent 15 minutes later if the alert hasn't been cleared.</p>
                     </div>
                 </details>
 
@@ -255,7 +256,7 @@
                 <details>
                     <summary>What data does WellCheck store?</summary>
                     <div class="faq-answer">
-                        <p>Almost everything stays on your device: your check-in schedule, history, settings, and emergency notes.</p>
+                        <p>Almost everything stays on your device: your check-in schedule, history, and settings.</p>
                         <p>The only data stored on our servers is your contacts' <strong>phone numbers</strong>, which are required to send SMS alerts. Contact names and email addresses are stored temporarily during the consent process (up to 7 days) and then deleted.</p>
                         <p>See our full <a href="/privacy">Privacy Policy</a> for details.</p>
                     </div>
@@ -269,9 +270,10 @@
                 </details>
 
                 <details>
-                    <summary>Are emergency notes (medications, conditions, etc.) private?</summary>
+                    <summary>Is the optional location sharing private?</summary>
                     <div class="faq-answer">
-                        <p>Emergency notes are included in the SMS alert sent to your contacts, so they're transmitted over SMS — which is not encrypted. Only add information you're comfortable with being sent as a plain text message. WellCheck does not store emergency notes on its servers; they live only on your device.</p>
+                        <p>Location sharing is <strong>off by default</strong> and entirely optional. When enabled, WellCheck captures a GPS snapshot each time you check in and includes it as a Google Maps link in emergency alerts — so your contacts know your last known location.</p>
+                        <p>Your location is never stored on WellCheck's servers. It is captured on-device at check-in time and included in the emergency task payload only for the duration of that check-in cycle. When you check in successfully, the task is cancelled and the location data is discarded.</p>
                     </div>
                 </details>
             </div>
