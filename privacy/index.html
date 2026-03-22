@@ -50,16 +50,15 @@
 
         <h2>Data Stored for SMS Consent Management</h2>
         <div class="important">
-            <p>To manage email consent requests for SMS alerts, we store the following <strong>while a request is pending</strong>:</p>
+            <p>To manage consent requests for SMS alerts, we store the following <strong>while a request is pending</strong>:</p>
             <ul>
-                <li><strong>Contact email address</strong> (to send and resend the consent request)</li>
-                <li><strong>Contact name</strong> (to personalize the consent email)</li>
+                <li><strong>Contact name</strong> (to personalize the consent form)</li>
                 <li><strong>Your full name</strong> (displayed in the consent request)</li>
                 <li><strong>Contact phone number</strong> (displayed on the consent page for verification)</li>
                 <li><strong>Consent status</strong> (pending)</li>
                 <li><strong>Request timestamp</strong></li>
             </ul>
-            <p><strong>Once consent is resolved</strong> (accepted, declined, or expired after 7 days), we immediately delete the email address and names. Only the minimum needed for TCPA compliance is retained:</p>
+            <p><strong>Once consent is resolved</strong> (accepted, declined, or expired after 7 days), we immediately delete the names. Only the minimum needed for TCPA compliance is retained:</p>
             <ul>
                 <li><strong>Contact phone number</strong></li>
                 <li><strong>Consent status</strong> (confirmed/rejected/expired)</li>
@@ -74,8 +73,6 @@
         <p><strong>Legal Requirement:</strong> US law (TCPA) requires us to collect explicit consent before sending SMS messages and to permanently honor opt-out requests.</p>
 
         <h2>Third-Party Services</h2>
-        
-        <p><strong>SendGrid (Email Delivery):</strong> Used to send consent request emails to your contacts. SendGrid processes email addresses and names but does not store or use this data for any other purpose.</p>
         
         <p><strong>Twilio (SMS Delivery):</strong> Used only to send emergency alerts to contacts who have explicitly consented. Twilio processes phone numbers and message content but does not store or use this data for any other purpose.</p>
         
@@ -100,14 +97,14 @@
             <li><strong>View stored data:</strong> Contact support@wellcheckapp.com</li>
             <li><strong>Remove your data:</strong> Delete the WellCheck app to remove all local data</li>
             <li><strong>Remove backend data:</strong> Contact support to delete consent records and phone numbers</li>
-            <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts or decline the email consent request</li>
+            <li><strong>Opt-out:</strong> Any contact can reply STOP to opt out of alerts or decline the consent request</li>
         </ul>
 
         <h2>Data Security</h2>
         <ul>
             <li>All network communication uses HTTPS encryption</li>
             <li>Backend data is encrypted at rest on Firebase servers</li>
-            <li>Email delivery uses TLS encryption via SendGrid</li>
+            <li>SMS delivery uses TLS encryption via Twilio</li>
             <li>No employee access to user data</li>
             <li>Regular security audits</li>
         </ul>
@@ -117,7 +114,7 @@
 
         <h2>Data Retention</h2>
         <ul>
-            <li><strong>Email addresses &amp; names:</strong> Deleted as soon as consent is resolved (accepted, declined, or expired)</li>
+            <li><strong>Names:</strong> Deleted as soon as consent is resolved (accepted, declined, or expired)</li>
             <li><strong>Phone numbers:</strong> Retained after consent is confirmed (needed for SMS delivery)</li>
             <li><strong>Consent status &amp; timestamps:</strong> Retained permanently (TCPA compliance)</li>
             <li><strong>Opt-out records:</strong> Retained permanently (legal requirement)</li>
