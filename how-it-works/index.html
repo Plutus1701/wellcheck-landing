@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How WellCheck Works - Flow Diagram</title>
+    <meta name="description" content="See exactly how WellCheck's automatic check-in and emergency alert system works — from check-in to SMS delivery.">
+    <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+
+        /* ── Page layout ────────────────────────────────── */
+        .how-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        .page-intro {
+            text-align: center;
+            padding: 3.5rem 1rem 1rem;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .page-intro p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 580px;
+            margin: 0 auto 3rem;
+        }
+
+        /* ── Actors row ─────────────────────────────────── */
+        .actors-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .actor-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid;
+        }
+
+        .actor-device {
+            background: rgba(72, 187, 120, 0.1);
+            border-color: rgba(72, 187, 120, 0.4);
+            color: var(--accent-green);
+        }
+
+        .actor-firebase {
+            background: rgba(74, 158, 222, 0.1);
+            border-color: rgba(74, 158, 222, 0.4);
+            color: var(--primary-blue);
+        }
+
+        .actor-twilio {
+            background: rgba(251, 146, 60, 0.1);
+            border-color: rgba(251, 146, 60, 0.4);
+            color: #fb923c;
+        }
+
+        /* ── Section labels ─────────────────────────────── */
+        .flow-label {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .flow-label .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 999px;
+            margin-bottom: 0.6rem;
+        }
+
+        .badge-success {
+            background: rgba(72, 187, 120, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(72, 187, 120, 0.35);
+        }
+
+        .badge-missed {
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .flow-label h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            -webkit-text-fill-color: var(--text-primary);
+            background: none;
+        }
+
+        /* ── Flow column ────────────────────────────────── */
+        .flow-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* ── Step node ──────────────────────────────────── */
+        .step {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 14px;
+            padding: 1.1rem 1.4rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            position: relative;
+        }
+
+        .step-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            line-height: 1;
+            margin-top: 0.1rem;
+        }
+
+        .step-body {
+            flex: 1;
+        }
+
+        .step-body strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .step-body span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .step-actor {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid;
+            white-space: nowrap;
+            align-self: flex-start;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        /* Step color variants by actor */
+        .step-device {
+            background: rgba(72, 187, 120, 0.07);
+            border: 1px solid rgba(72, 187, 120, 0.2);
+        }
+        .step-device .step-actor {
+            background: rgba(72, 187, 120, 0.12);
+            border-color: rgba(72, 187, 120, 0.35);
+            color: var(--accent-green);
+        }
+
+        .step-firebase {
+            background: rgba(74, 158, 222, 0.07);
+            border: 1px solid rgba(74, 158, 222, 0.2);
+        }
+        .step-firebase .step-actor {
+            background: rgba(74, 158, 222, 0.12);
+            border-color: rgba(74, 158, 222, 0.35);
+            color: var(--primary-blue);
+        }
+
+        .step-twilio {
+            background: rgba(251, 146, 60, 0.07);
+            border: 1px solid rgba(251, 146, 60, 0.2);
+        }
+        .step-twilio .step-actor {
+            background: rgba(251, 146, 60, 0.12);
+            border-color: rgba(251, 146, 60, 0.3);
+            color: #fb923c;
+        }
+
+        .step-neutral {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+        }
+        .step-neutral .step-actor {
+            display: none;
+        }
+
+        /* ── Arrow connector ────────────────────────────── */
+        .arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2.2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+
+        /* ── Decision fork ──────────────────────────────── */
+        .fork-wrapper {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .fork-header {
+            text-align: center;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px 14px 0 0;
+            border-bottom: none;
+        }
+
+        .fork-header span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .fork-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border-glass);
+            border-radius: 0 0 14px 14px;
+            overflow: hidden;
+        }
+
+        .fork-branch {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .fork-branch:first-child {
+            border-right: 1px solid var(--border-glass);
+            background: rgba(72, 187, 120, 0.04);
+        }
+
+        .fork-branch:last-child {
+            background: rgba(239, 68, 68, 0.04);
+        }
+
+        .fork-branch-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        .fork-branch-label.yes {
+            background: rgba(72, 187, 120, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+        }
+
+        .fork-branch-label.no {
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+
+        .fork-step {
+            border-radius: 10px;
+            padding: 0.7rem 0.9rem;
+            font-size: 0.83rem;
+        }
+
+        .fork-step strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .fork-step span {
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .fork-step.fs-device {
+            background: rgba(72, 187, 120, 0.08);
+            border: 1px solid rgba(72, 187, 120, 0.2);
+        }
+        .fork-step.fs-device strong { color: var(--accent-green); }
+
+        .fork-step.fs-firebase {
+            background: rgba(74, 158, 222, 0.08);
+            border: 1px solid rgba(74, 158, 222, 0.2);
+        }
+        .fork-step.fs-firebase strong { color: var(--primary-blue); }
+
+        .fork-step.fs-twilio {
+            background: rgba(251, 146, 60, 0.08);
+            border: 1px solid rgba(251, 146, 60, 0.2);
+        }
+        .fork-step.fs-twilio strong { color: #fb923c; }
+
+        .fork-step.fs-outcome-good {
+            background: rgba(72, 187, 120, 0.1);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+        }
+        .fork-step.fs-outcome-good strong { color: var(--accent-green); }
+
+        .fork-step.fs-outcome-alert {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+        .fork-step.fs-outcome-alert strong { color: #f87171; }
+
+        .fork-arrow {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            opacity: 0.4;
+            padding: 0.2rem 0;
+        }
+
+        /* ── Section divider ────────────────────────────── */
+        .section-gap {
+            height: 3.5rem;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border-glass);
+            margin: 0 auto 3.5rem;
+            max-width: 520px;
+        }
+
+        /* ── SMS preview ────────────────────────────────── */
+        .sms-preview-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .sms-phone {
+            background: #1c1c1e;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 1.25rem 1rem;
+            max-width: 340px;
+            width: 100%;
+        }
+
+        .sms-sender {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            text-align: center;
+        }
+
+        .sms-bubble {
+            background: #2c2c2e;
+            border-radius: 14px 14px 14px 4px;
+            padding: 0.85rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .sms-bubble em {
+            color: var(--accent-green);
+            font-style: normal;
+        }
+
+        /* ── Closing callout ────────────────────────────── */
+        .callout-box {
+            max-width: 520px;
+            margin: 3rem auto 0;
+            background: rgba(72, 187, 120, 0.06);
+            border: 1px solid rgba(72, 187, 120, 0.2);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            text-align: center;
+        }
+
+        .callout-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .callout-box strong {
+            color: var(--text-primary);
+        }
+
+        /* ── Mobile tweaks ──────────────────────────────── */
+        @media (max-width: 600px) {
+            .fork-branches {
+                grid-template-columns: 1fr;
+            }
+
+            .fork-branch:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--border-glass);
+            }
+
+            .page-intro {
+                padding-top: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-intro fade-in-up">
+        <h1>How WellCheck Works</h1>
+        <p>Three actors. Two paths. One goal — make sure someone knows when you need help.</p>
+    </div>
+
+    <div class="how-container fade-in-up">
+
+        <!-- Actors -->
+        <div class="actors-row">
+            <div class="actor-pill actor-device">📱 iPhone / Apple Watch</div>
+            <div class="actor-pill actor-firebase">🔥 Firebase</div>
+            <div class="actor-pill actor-twilio">📨 Twilio</div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- PATH A: SUCCESSFUL CHECK-IN                   -->
+        <!-- ══════════════════════════════════════════════ -->
+
+        <div class="flow-label">
+            <div class="badge badge-success">Path A</div>
+            <h2>You Check In On Time</h2>
+        </div>
+
+        <div class="flow-col">
+
+            <div class="step step-neutral">
+                <div class="step-icon">🕐</div>
+                <div class="step-body">
+                    <strong>Check-in time arrives</strong>
+                    <span>Based on your interval or scheduled time. WellCheck has pre-scheduled an emergency alert in Firebase to fire if you don't respond.</span>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="step step-device">
+                <div class="step-icon">🔔</div>
+                <div class="step-body">
+                    <strong>WellCheck notifies you</strong>
+                    <span>A notification arrives on your iPhone or Apple Watch. You can also start a check-in from Activity Mode on your Watch.</span>
+                </div>
+                <div class="step-actor">iPhone / Watch</div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="step step-device">
+                <div class="step-icon">✅</div>
+                <div class="step-body">
+                    <strong>You tap "I'm OK"</strong>
+                    <span>From the notification, inside the app, or from your Apple Watch. No app open required for the notification action.</span>
+                </div>
+                <div class="step-actor">iPhone / Watch</div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="step step-firebase">
+                <div class="step-icon">🔥</div>
+                <div class="step-body">
+                    <strong>Firebase records the check-in</strong>
+                    <span>The pending emergency alert is cancelled. A new one is scheduled for the end of your next check-in cycle.</span>
+                </div>
+                <div class="step-actor">Firebase</div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="step step-neutral">
+                <div class="step-icon">🔄</div>
+                <div class="step-body">
+                    <strong>Clock resets — you're on track</strong>
+                    <span>WellCheck is quiet until your next check-in window. No alerts, no messages. All is well.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="section-gap"></div>
+        <hr class="section-divider">
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- PATH B: MISSED CHECK-IN                       -->
+        <!-- ══════════════════════════════════════════════ -->
+
+        <div class="flow-label">
+            <div class="badge badge-missed">Path B</div>
+            <h2>You Miss a Check-In</h2>
+        </div>
+
+        <div class="flow-col">
+
+            <div class="step step-neutral">
+                <div class="step-icon">🕐</div>
+                <div class="step-body">
+                    <strong>Check-in time arrives</strong>
+                    <span>Same as Path A — WellCheck has a pending emergency alert queued in Firebase, timed for the end of your grace period.</span>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="step step-device">
+                <div class="step-icon">🔔</div>
+                <div class="step-body">
+                    <strong>WellCheck notifies you</strong>
+                    <span>A notification arrives. You don't respond.</span>
+                </div>
+                <div class="step-actor">iPhone / Watch</div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="step step-device">
+                <div class="step-icon">⚠️</div>
+                <div class="step-body">
+                    <strong>Grace period begins</strong>
+                    <span>Urgent, repeating alerts fire on your phone — every 30 seconds to 2 minutes — for the duration of your grace period (5–30 min, your choice).</span>
+                </div>
+                <div class="step-actor">iPhone / Watch</div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <!-- Branch fork -->
+            <div class="fork-wrapper">
+                <div class="fork-header">
+                    <span>Do you check in before the grace period ends?</span>
+                </div>
+                <div class="fork-branches">
+
+                    <!-- YES branch -->
+                    <div class="fork-branch">
+                        <div class="fork-branch-label yes">✓ Yes</div>
+
+                        <div class="fork-step fs-device">
+                            <strong>You tap "I'm OK"</strong>
+                            <span>Check-in recorded. Clock resets.</span>
+                        </div>
+
+                        <div class="fork-arrow">↓</div>
+
+                        <div class="fork-step fs-firebase">
+                            <strong>Firebase cancels the alert</strong>
+                            <span>The scheduled emergency trigger is deleted. No SMS is sent.</span>
+                        </div>
+
+                        <div class="fork-arrow">↓</div>
+
+                        <div class="fork-step fs-outcome-good">
+                            <strong>✅ All clear</strong>
+                            <span>Your contacts hear nothing. WellCheck resets to your next check-in window.</span>
+                        </div>
+                    </div>
+
+                    <!-- NO branch -->
+                    <div class="fork-branch">
+                        <div class="fork-branch-label no">✗ No</div>
+
+                        <div class="fork-step fs-outcome-alert">
+                            <strong>Grace period ends</strong>
+                            <span>No check-in recorded. The pre-scheduled trigger fires.</span>
+                        </div>
+
+                        <div class="fork-arrow">↓</div>
+
+                        <div class="fork-step fs-firebase">
+                            <strong>Firebase activates the alert</strong>
+                            <span>The emergency trigger runs directly from WellCheck's backend — your phone does not need to be on or reachable.</span>
+                        </div>
+
+                        <div class="fork-arrow">↓</div>
+
+                        <div class="fork-step fs-twilio">
+                            <strong>Twilio delivers the SMS</strong>
+                            <span>One text is sent to every confirmed contact simultaneously, from WellCheck's dedicated number.</span>
+                        </div>
+
+                        <div class="fork-arrow">↓</div>
+
+                        <div class="fork-step fs-outcome-alert">
+                            <strong>🚨 Contacts are notified</strong>
+                            <span>They receive your name, the missed check-in time, your callback number, and your last known location (if enabled).</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- WHAT CONTACTS RECEIVE                         -->
+        <!-- ══════════════════════════════════════════════ -->
+
+        <div class="section-gap"></div>
+        <hr class="section-divider">
+
+        <div class="flow-label">
+            <h2 style="font-size: 1.3rem;">What Your Contacts Receive</h2>
+        </div>
+
+        <div class="sms-preview-wrapper">
+            <div class="sms-phone">
+                <div class="sms-sender">From: WellCheck Emergency (+1 800-XXX-XXXX)</div>
+                <div class="sms-bubble">
+                    <em>WELLCHECK ALERT</em> — <em>Sarah Johnson</em> missed their scheduled check-in at <em>2:00 PM</em>. The grace period ended at <em>2:15 PM</em>. Please check on them or call <em>(207) 555-0192</em> immediately.
+                    <br><br>
+                    Last known location: maps.google.com/…
+                    <br><br>
+                    Reply STOP to opt out.
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing note -->
+        <div class="callout-box">
+            <p>
+                <strong>The alert fires from Firebase, not from your phone.</strong><br>
+                If your device is off, out of battery, or out of signal — the alert still goes out. The moment you checked in, the clock was set. Silence after that is the signal.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/faq" class="btn btn-secondary">Read the FAQ</a>
+            <a href="/" class="btn btn-primary">Get Started</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/faq">FAQ</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="mailto:support@wellcheckapp.com">Support</a>
+        </div>
+        <p class="copyright">© 2026 WellCheckApp LLC. All rights reserved.</p>
+    </footer>
+
+    <script src="/nav.js"></script>
+</body>
+</html>
