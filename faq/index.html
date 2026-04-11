@@ -295,6 +295,16 @@
                 </details>
 
                 <details>
+                    <summary>What happens if I lose cell signal during Activity Mode?</summary>
+                    <div class="faq-answer">
+                        <p>WellCheck detects the loss immediately and sends you an urgent notification telling you how many minutes you have before your contacts would be alerted. For example: <em>"You have 12 minutes to find service before your contacts are alerted to a possible emergency."</em></p>
+                        <p>At the same time, all pending check-in notifications are cancelled and check-ins are disabled — so no false alarms fire while you're out of range. If it's safe to do so, backtrack to your last known signal area before that window closes.</p>
+                        <p>When signal is restored, WellCheck automatically ends Activity Mode, records a fresh check-in to cancel any pending alert scheduled on its servers, and sends you another notification letting you know check-ins are still turned off. <strong>You need to manually re-enable check-ins in the app</strong> — WellCheck won't restart your schedule automatically, so you can make sure you're in a position to actually complete them before the clock starts again.</p>
+                        <p>Note: this detection only works while your iPhone is active. If your phone is locked and the app is suspended in the background, it may not detect signal loss until you next open the app.</p>
+                    </div>
+                </details>
+
+                <details>
                     <summary>Can I use Activity Mode from my Apple Watch?</summary>
                     <div class="faq-answer">
                         <p>Yes. You can start Activity Mode from your Watch and check in with a tap from the Activity Mode screen that appears on your wrist. The Watch shows a live countdown, your check-in interval, and a reminder that SMS alerts go out 5 minutes after a missed check-in.</p>
@@ -393,6 +403,17 @@
                         <p>Currently, WellCheck is US-only. Emergency SMS alerts are sent via a US toll-free number (Twilio), so contacts must have US phone numbers to receive them.</p>
                         <p>If you're a US-based user traveling abroad temporarily, the app will continue to work as long as your phone has internet access — but your contacts still need US numbers.</p>
                         <p>International support is on the roadmap.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does WellCheck work via satellite connectivity?</summary>
+                    <div class="faq-answer">
+                        <p>It depends on the type of satellite connection.</p>
+                        <p><strong>Emergency SOS via Satellite</strong> (built into iPhone 14 and later) does not work with WellCheck. That system is a low-bandwidth, Apple-only emergency relay — third-party apps cannot use it to send or receive data.</p>
+                        <p><strong>Carrier satellite data</strong> (such as T-Mobile's Starlink-based coverage, available on iPhone 12 and later with iOS 18) provides a real, general-purpose internet connection. WellCheck's check-ins and alert scheduling should work over this connection, since the data involved is small. Coverage and reliability vary by location and carrier.</p>
+                        <p><strong>GPS location capture</strong> always works regardless of network connection — your iPhone's GPS radio receives satellite signals directly and doesn't need cellular or Wi-Fi. If you have location sharing enabled, your position at check-in time will still be captured and included in any emergency alert.</p>
+                        <p>If you're heading somewhere truly remote with no coverage of any kind, Activity Mode's signal-loss detection is your best safeguard — it gives you a countdown and disables check-ins so a dead zone doesn't trigger a false alarm.</p>
                     </div>
                 </details>
 
