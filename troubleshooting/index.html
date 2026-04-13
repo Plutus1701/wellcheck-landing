@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting - WellCheck</title>
+    <meta name="description" content="Fix common WellCheck issues — notifications not arriving, check-in reminders missed, Focus modes blocking alerts, and other iPhone settings that affect the app.">
+    <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/nav.js"></script>
+    <style>
+        .faq-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        details {
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            margin-bottom: 0.6rem;
+            background: var(--bg-card);
+            transition: background 0.2s;
+        }
+
+        details[open] {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        summary {
+            padding: 1rem 1.25rem;
+            font-weight: 500;
+            font-size: 0.975rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer p + p {
+            margin-top: 0.75rem;
+        }
+
+        .faq-answer strong {
+            color: var(--text-primary);
+        }
+
+        .faq-answer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        .steps {
+            margin: 0.5rem 0 0.25rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .steps li {
+            padding: 0.2rem 0;
+        }
+
+        .steps li::before {
+            content: '→ ';
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .tip-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid var(--accent-green);
+            border-radius: 0 8px 8px 0;
+            padding: 0.75rem 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="legal-container">
+            <a href="/" class="back-link">← Back to Home</a>
+
+            <h1>Troubleshooting</h1>
+            <p style="color: var(--text-secondary); margin-bottom: 2.5rem;">iPhone settings that can interfere with WellCheck — and how to fix them. If something in the app isn't working as expected, start here. Can't find your answer? <a href="/contact" style="color: var(--primary-blue);">Get in touch.</a></p>
+
+            <!-- NOTIFICATIONS -->
+            <div class="faq-section">
+                <h2>Notifications</h2>
+
+                <details>
+                    <summary>I'm not getting check-in reminders</summary>
+                    <div class="faq-answer">
+                        <p>Check each of the following in order:</p>
+                        <p><strong>1. Notifications are allowed for WellCheck</strong><br>
+                        Go to <strong>Settings → WellCheck → Notifications</strong> and make sure <em>Allow Notifications</em> is turned on. Also confirm that <em>Lock Screen</em>, <em>Notification Center</em>, and <em>Banners</em> are all checked, and that <em>Sounds</em> is enabled.</p>
+                        <p><strong>2. A Focus mode isn't silencing the app</strong><br>
+                        Focus modes (Do Not Disturb, Sleep, Driving, and any custom ones you've created) can silently block notifications. Go to <strong>Settings → Focus</strong> and tap each Focus that might be active during your check-in window. Look for a <em>People</em> or <em>Apps</em> section — WellCheck must be listed as an allowed app, or notifications will be blocked while that Focus is on.</p>
+                        <p><strong>3. Notification Summary isn't grouping WellCheck</strong><br>
+                        iOS can batch low-priority notifications and deliver them all at once at a scheduled time. Go to <strong>Settings → Notifications → Scheduled Summary</strong> and make sure WellCheck is <em>not</em> included in the summary — check-in reminders need to arrive on time, not hours later.</p>
+                        <p><strong>4. Banner style is set to show</strong><br>
+                        In <strong>Settings → WellCheck → Notifications</strong>, confirm <em>Banner Style</em> is set to <em>Temporary</em> or <em>Persistent</em> (not off).</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>My phone is in Do Not Disturb and I need WellCheck to break through</summary>
+                    <div class="faq-answer">
+                        <p>You can allow WellCheck notifications even when Do Not Disturb is on:</p>
+                        <ul class="steps">
+                            <li>Settings → Focus → Do Not Disturb</li>
+                            <li>Tap <em>Apps</em> (or <em>Add App</em>)</li>
+                            <li>Find and add <em>WellCheck</em></li>
+                        </ul>
+                        <p>Once added, WellCheck notifications will come through regardless of Do Not Disturb. Do this for any Focus mode you use regularly — Sleep, Driving, custom ones, etc.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>My Sleep Focus is blocking notifications overnight</summary>
+                    <div class="faq-answer">
+                        <p>Sleep Focus activates automatically based on your Health app sleep schedule and silences almost everything. If your check-in window starts before your Sleep Focus ends, you'll miss the first reminder of the day.</p>
+                        <p>Two options:</p>
+                        <p><strong>Option 1 — Allow WellCheck through Sleep Focus:</strong></p>
+                        <ul class="steps">
+                            <li>Settings → Focus → Sleep</li>
+                            <li>Tap <em>Apps</em></li>
+                            <li>Add <em>WellCheck</em></li>
+                        </ul>
+                        <p><strong>Option 2 — Set your first check-in after Sleep Focus ends:</strong><br>
+                        In WellCheck Settings, set your <em>First Check-In</em> time to after your normal wake-up time. WellCheck already prevents check-ins during your sleep window — just make sure that window matches when Sleep Focus actually releases your phone.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I see notifications I may have missed?</summary>
+                    <div class="faq-answer">
+                        <p>If a notification arrived while your phone was sitting on a table or you didn't notice it at the time, you can find it in the <strong>Notification Center</strong> — a list of all recent notifications from every app.</p>
+                        <p><strong>To open Notification Center:</strong><br>
+                        Swipe down from the <em>top of the screen</em> (any area except the very top-right corner, which opens Control Center instead). A list of recent notifications will appear, grouped by app. Scroll up to see older ones.</p>
+                        <p><strong>On the Lock Screen:</strong><br>
+                        If your phone is locked, notifications that arrived while it was locked will appear directly on the lock screen. Wake the screen by pressing the side button or tapping it — any unread notifications will be visible without unlocking.</p>
+                        <p><strong>To clear a notification you no longer need:</strong><br>
+                        Swipe the notification to the left and tap <em>Clear</em>, or tap <em>Clear All</em> to remove everything from that app at once.</p>
+                        <p class="tip-box">If WellCheck notifications are not showing up in Notification Center at all, go to <strong>Settings → WellCheck → Notifications</strong> and make sure <em>Notification Center</em> is checked alongside <em>Lock Screen</em> and <em>Banners</em>.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>I'm not hearing any sound for notifications</summary>
+                    <div class="faq-answer">
+                        <p>Check the following:</p>
+                        <p><strong>Ring/Silent switch:</strong> The physical switch on the left side of your iPhone. If it's flipped to silent (showing orange), most notification sounds are muted. Check-in reminders use the system notification sound, which is affected by this switch.</p>
+                        <p><strong>Notification sound enabled:</strong> Settings → WellCheck → Notifications → confirm <em>Sounds</em> is on.</p>
+                        <p><strong>Volume:</strong> Check your ringer volume (the volume buttons when nothing is playing, or Settings → Sounds &amp; Haptics → Ringer and Alerts).</p>
+                        <p><strong>Focus mode:</strong> Some Focus configurations mute sounds even for allowed apps. Check Settings → Focus → your active Focus → and look for sound settings.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- FOCUS MODES -->
+            <div class="faq-section">
+                <h2>Focus Modes</h2>
+
+                <details>
+                    <summary>How do Focus modes affect WellCheck?</summary>
+                    <div class="faq-answer">
+                        <p>Focus modes are one of the most common reasons WellCheck notifications don't arrive on time. When a Focus is active, iOS blocks notifications from any app not explicitly on the allowed list — even if notifications are turned on for the app in Settings.</p>
+                        <p>The most common Focus modes that cause issues:</p>
+                        <p>
+                            <strong>Sleep</strong> — runs automatically based on your Health app bedtime schedule. If your sleep schedule overlaps your check-in window, reminders won't arrive.<br>
+                            <strong>Do Not Disturb</strong> — often turned on manually or scheduled for certain hours. Easy to forget it's active.<br>
+                            <strong>Driving</strong> — activates automatically when your iPhone detects car motion or connects to CarPlay. If you check in while driving, reminders during that window may not arrive.
+                        </p>
+                        <p>To check if a Focus is active: swipe down from the top-right corner to open Control Center. If a Focus icon is shown (moon, car, etc.), one is currently on.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I add WellCheck to an allowed apps list for a Focus?</summary>
+                    <div class="faq-answer">
+                        <p>Do this for every Focus mode you use during your check-in hours:</p>
+                        <ul class="steps">
+                            <li>Settings → Focus</li>
+                            <li>Tap the Focus you want to configure (Do Not Disturb, Sleep, Driving, etc.)</li>
+                            <li>Tap <em>Apps</em> under the "Allow Notifications From" section</li>
+                            <li>Tap <em>Add App</em> and search for WellCheck</li>
+                            <li>Tap WellCheck to add it, then tap Done</li>
+                        </ul>
+                        <p>Repeat for each Focus. If Focus is shared across devices (Settings → Focus → Share Across Devices), doing this on one device applies to all of them.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Driving Focus is turning on automatically and blocking notifications</summary>
+                    <div class="faq-answer">
+                        <p>Driving Focus can activate automatically when your iPhone detects movement consistent with driving, or when it connects to a car's Bluetooth. To disable automatic activation:</p>
+                        <ul class="steps">
+                            <li>Settings → Focus → Driving</li>
+                            <li>Tap <em>Turn On Automatically</em></li>
+                            <li>Set it to <em>Never</em> (or change it to <em>When Connected to Car Bluetooth</em> if you only want it when actually in the car)</li>
+                        </ul>
+                        <p>Alternatively, add WellCheck to Driving Focus's allowed apps list so reminders come through regardless.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- BACKGROUND & BATTERY -->
+            <div class="faq-section">
+                <h2>Background &amp; Battery</h2>
+
+                <details>
+                    <summary>Background App Refresh is off — does that affect WellCheck?</summary>
+                    <div class="faq-answer">
+                        <p>Mostly no. WellCheck's emergency alerts are sent from the cloud — they don't depend on the app running in the background. Your check-in notifications are scheduled in advance using iOS's built-in notification system, which also doesn't require Background App Refresh.</p>
+                        <p>Where it can matter: when your app comes back to the foreground after being suspended, it may take a moment longer to sync state. In practice this is rarely noticeable.</p>
+                        <p>If you want to be safe, you can enable it at <strong>Settings → General → Background App Refresh → WellCheck</strong>. But it's not required for core functionality.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Low Power Mode is interfering with WellCheck</summary>
+                    <div class="faq-answer">
+                        <p>Low Power Mode reduces background activity and can delay or suppress some notifications. It's turned on automatically when battery drops below 20%, or you can turn it on manually.</p>
+                        <p>For most WellCheck functionality this won't matter — notifications and cloud-based alerts are not significantly affected. However if you notice notifications arriving late or the app being slow to update when you open it, Low Power Mode may be contributing.</p>
+                        <p>Check at <strong>Settings → Battery → Low Power Mode</strong>. iPhone turns it off automatically when you charge above 80%.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Will WellCheck work if my phone dies before a check-in?</summary>
+                    <div class="faq-answer">
+                        <p>Yes — this is one of WellCheck's core design goals. Every time you check in, WellCheck pre-schedules your emergency alert on its servers, timed for the end of your next grace period. If your phone dies, loses signal, or is turned off before your next check-in, the alert still fires from the cloud at the scheduled time.</p>
+                        <p>The only requirement: your phone must have been on long enough to complete your most recent check-in. The alert is scheduled at that moment. After that, your phone's state doesn't matter.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- SCREEN TIME -->
+            <div class="faq-section">
+                <h2>Screen Time &amp; Restrictions</h2>
+
+                <details>
+                    <summary>Screen Time is blocking WellCheck</summary>
+                    <div class="faq-answer">
+                        <p>Screen Time has two features that can affect WellCheck:</p>
+                        <p><strong>App Limits</strong> — sets a daily time limit on app categories or individual apps. If WellCheck hits its limit, it's blocked until midnight. Go to <strong>Settings → Screen Time → App Limits</strong> and either remove WellCheck from any limits, or tap the limit and enable <em>Block at End of Limit</em> to off.</p>
+                        <p><strong>Downtime</strong> — blocks all apps except those on an allowed list during set hours. If Downtime is scheduled during your check-in window, WellCheck will be inaccessible. Go to <strong>Settings → Screen Time → Downtime</strong> and either adjust the schedule or add WellCheck to the <em>Always Allowed</em> list at <strong>Settings → Screen Time → Always Allowed</strong>.</p>
+                        <p>Note: notification delivery from already-scheduled notifications should still work during Downtime, but opening the app to check in manually will be blocked.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>How do I add WellCheck to the Always Allowed list in Screen Time?</summary>
+                    <div class="faq-answer">
+                        <ul class="steps">
+                            <li>Settings → Screen Time → Always Allowed</li>
+                            <li>Tap the <em>+</em> next to WellCheck</li>
+                        </ul>
+                        <p>This ensures WellCheck can be opened at any time, even during Downtime.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- LOCATION -->
+            <div class="faq-section">
+                <h2>Location</h2>
+
+                <details>
+                    <summary>My location isn't being included in emergency alerts</summary>
+                    <div class="faq-answer">
+                        <p>Location sharing in WellCheck is optional and off by default. To enable it, open the WellCheck app → <strong>Settings → Features → Share Location</strong>.</p>
+                        <p>Once enabled, WellCheck also needs location permission from iOS:</p>
+                        <ul class="steps">
+                            <li>Settings → Privacy &amp; Security → Location Services → WellCheck</li>
+                            <li>Set to <em>While Using the App</em></li>
+                            <li>Make sure <em>Precise Location</em> is turned on</li>
+                        </ul>
+                        <p>WellCheck captures your location at the moment you check in — not continuously. If you check in indoors or in a location with poor GPS signal, the captured coordinates may be less accurate.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Does GPS work without cell service?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. Your iPhone's GPS radio receives signals directly from satellites and does not need cellular, Wi-Fi, or internet access to determine your location. If you have location sharing enabled, your position will still be captured at check-in time even if you're offline.</p>
+                        <p>Note: while GPS works offline, the location data is only included in your emergency alert when it was captured during a successful check-in. If you lose signal during Activity Mode and check-ins are disabled before you check in, no new location is captured for that cycle.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- CHECK-IN ISSUES -->
+            <div class="faq-section">
+                <h2>Check-In Issues</h2>
+
+                <details>
+                    <summary>Check-in says "Failed" but shows a recent check-in time</summary>
+                    <div class="faq-answer">
+                        <p>This means WellCheck successfully recorded your check-in but couldn't complete the full verification — usually because it couldn't confirm with its servers that the next emergency alert was properly scheduled.</p>
+                        <p>Common causes:</p>
+                        <p>
+                            <strong>No internet connection</strong> — Check your Wi-Fi or cellular connection and tap the button to retry.<br>
+                            <strong>Temporary server issue</strong> — WellCheck's backend may have been briefly unavailable. Check <a href="https://wellcheck-85820.web.app/status">the status page</a> and retry.<br>
+                            <strong>App was suspended mid-check-in</strong> — If iOS suspended the app before the network request finished, the check-in may show as failed even if it succeeded. Tap retry — if the check-in already went through, a second tap is harmless.
+                        </p>
+                        <p>Your contacts are only alerted if a check-in is genuinely missed at the end of your grace period. A "failed" verification display does not itself trigger an alert.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>The check-in button is faded and I can't tap it</summary>
+                    <div class="faq-answer">
+                        <p>The check-in button is disabled in a few situations:</p>
+                        <p>
+                            <strong>No confirmed contacts</strong> — You need at least one contact to accept their consent link before the check-in system activates. Open Contacts (top-left icon) and check your contacts' statuses.<br>
+                            <strong>No internet connection</strong> — Check-ins require a network connection to record with WellCheck's servers and schedule your next alert.<br>
+                            <strong>Scheduled mode with no times set</strong> — If you're in Scheduled Times mode, you need at least one check-in time configured. Open Settings to add one.<br>
+                            <strong>Check-in already in progress</strong> — If a check-in is currently being verified (spinning indicator), wait a moment and try again.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>I'm getting check-in reminders in the middle of the night</summary>
+                    <div class="faq-answer">
+                        <p>This is almost always a daily window configuration issue. In interval mode, WellCheck uses your <em>First Check-In</em> and <em>Last Check-In</em> times to define when check-ins are active. If these times are set incorrectly, check-ins can land outside your intended hours.</p>
+                        <p>Open <strong>WellCheck → Settings → Daily Schedule</strong> and check:</p>
+                        <p>
+                            <strong>First and Last times are different</strong> — If both times are set to the same value, the window is effectively undefined and check-ins may occur at any hour.<br>
+                            <strong>Last time is after First time</strong> — e.g. First = 8:00 AM, Last = 10:00 PM. If Last is before First, the window is inverted.<br>
+                            <strong>Sleep window is sufficient</strong> — The Settings screen now shows your sleep window beneath the pickers. Aim for at least 6 hours of uninterrupted sleep window.
+                        </p>
+                        <p>The app will show a warning if your window is collapsed or your sleep window is under 6 hours.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- APPLE WATCH -->
+            <div class="faq-section">
+                <h2>Apple Watch</h2>
+
+                <details>
+                    <summary>The WellCheck Watch app isn't showing up</summary>
+                    <div class="faq-answer">
+                        <p>The Watch app installs automatically when you install WellCheck on your iPhone. If it hasn't appeared:</p>
+                        <ul class="steps">
+                            <li>Open the Watch app on your iPhone</li>
+                            <li>Scroll down to find WellCheck under <em>Available Apps</em></li>
+                            <li>Tap <em>Install</em></li>
+                        </ul>
+                        <p>Make sure your Watch is on WatchOS 9 or later and is paired and connected to your iPhone.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Check-ins from my Watch are failing</summary>
+                    <div class="faq-answer">
+                        <p>Watch check-ins require either a connection to your iPhone (via Bluetooth or Wi-Fi) or a cellular connection on a Watch with LTE. Check the following:</p>
+                        <p>
+                            <strong>Watch is connected to iPhone</strong> — Look for the green phone icon in the Watch status bar. If it's red or missing, the Watch is out of Bluetooth range or the connection dropped.<br>
+                            <strong>Wi-Fi or cellular available</strong> — If your Watch has LTE and your iPhone isn't nearby, the Watch can check in directly over the internet. Make sure Wi-Fi or cellular is available on the Watch.<br>
+                            <strong>WellCheck Watch app is open</strong> — The Watch app must be open and on the check-in screen to register a tap. It doesn't run continuously in the background.
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Still having trouble?</p>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">Check the <a href="https://wellcheck-85820.web.app/status" style="color: var(--primary-blue);">service status page</a> to see if there's an active issue, or get in touch and we'll help you sort it out.</p>
+                <a href="/contact" class="btn btn-primary">Contact Support</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
