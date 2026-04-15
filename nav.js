@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/troubleshooting">Troubleshooting</a></li>
                     <li><a href="/privacy">Privacy</a></li>
                     <li><a href="/terms">Terms</a></li>
                     <li><a href="/consent">SMS Consent</a></li>
