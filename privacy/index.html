@@ -63,6 +63,7 @@
                 <li><strong>Contact phone number</strong></li>
                 <li><strong>Consent status</strong> (confirmed/rejected/expired)</li>
                 <li><strong>Timestamps</strong> (requested, responded)</li>
+                <li><strong>IP address and browser/device identifier</strong> of the person who submitted the consent response (retained permanently as proof of consent for TCPA compliance)</li>
             </ul>
             <p><strong>Note:</strong> If you have enabled location sharing, your GPS coordinates at last check-in are included in the Cloud Task payload for that check-in cycle. They are automatically discarded when you check in successfully (task cancelled) or when the emergency trigger fires (task executes). They are never written to Firestore or any persistent database.</p>
         </div>
@@ -113,7 +114,7 @@
         <ul>
             <li><strong>Names:</strong> Deleted as soon as consent is resolved (accepted, declined, or expired)</li>
             <li><strong>Phone numbers:</strong> Retained after consent is confirmed (needed for SMS delivery)</li>
-            <li><strong>Consent status &amp; timestamps:</strong> Retained permanently (TCPA compliance)</li>
+            <li><strong>Consent status, timestamps, IP address &amp; browser identifier:</strong> Retained permanently (TCPA compliance — proof of consent)</li>
             <li><strong>Opt-out records:</strong> Retained permanently (legal requirement)</li>
             <li><strong>Emergency wakeup push token &amp; optional location:</strong> Stored only in a Cloud Task payload. Automatically deleted when you check in (task cancelled) or when the emergency trigger fires (task executes) — never persisted longer than one check-in cycle.</li>
         </ul>
