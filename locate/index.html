@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellCheck — Track Location</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/nav.js"></script>
+    <style>
+        .locate-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .locate-card h2 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .location-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .location-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .location-text strong {
+            color: var(--text-primary);
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            padding: 0.5rem 0.9rem;
+            color: var(--primary-blue);
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .map-btn:hover { background: rgba(255,255,255,0.12); }
+
+        .ping-btn {
+            width: 100%;
+            padding: 0.9rem;
+            border-radius: 12px;
+            border: none;
+            background: var(--accent-green);
+            color: #000;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .ping-btn:hover:not(:disabled) { opacity: 0.85; }
+        .ping-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+            min-height: 1.4rem;
+        }
+
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-top-color: var(--accent-green);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-fresh { background: rgba(52,199,89,0.15); color: var(--accent-green); }
+        .badge-old   { background: rgba(255,255,255,0.08); color: var(--text-secondary); }
+
+        .no-location {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        #error-view {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        #error-view h2 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        #error-view p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        #loading-view {
+            text-align: center;
+            padding: 4rem 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="legal-container">
+
+            <div id="loading-view">
+                <div class="spinner" style="width:28px;height:28px;margin:0 auto 1rem;"></div>
+                <p>Loading location data…</p>
+            </div>
+
+            <div id="error-view" style="display:none;">
+                <h2 id="error-title">Link expired</h2>
+                <p id="error-body">This location link is no longer active.</p>
+            </div>
+
+            <div id="main-view" style="display:none;">
+                <h1 style="font-size:clamp(1.6rem,6vw,2.5rem); margin-bottom:0.35rem;">Location Tracker</h1>
+                <p style="color:var(--text-secondary); margin-bottom:2rem; font-size:0.9rem;">
+                    This link was included in a WellCheck emergency alert. It expires 24 hours after the alert was sent.
+                </p>
+
+                <!-- Last known location -->
+                <div class="locate-card" id="checkin-card">
+                    <h2>Last check-in location</h2>
+                    <div id="checkin-content">
+                        <p class="no-location">No location was recorded at their last check-in.</p>
+                    </div>
+                </div>
+
+                <!-- Live location -->
+                <div class="locate-card">
+                    <h2>Current location</h2>
+                    <div id="live-content">
+                        <p class="no-location" style="margin-bottom:1rem;">
+                            No live location yet. Tap the button below to request their current GPS position.
+                            Their phone must be on and connected for this to work.
+                        </p>
+                    </div>
+                    <button class="ping-btn" id="ping-btn" onclick="requestLiveLocation()">
+                        Get current location
+                    </button>
+                    <div class="status-row" id="ping-status"></div>
+                </div>
+
+                <p style="color:var(--text-secondary); font-size:0.8rem; text-align:center; margin-top:0.5rem;">
+                    Location data is only available to people who received this emergency alert.
+                    <br>This link expires automatically 24 hours after the alert was sent.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const GET_LOCATION_URL  = "https://us-central1-wellcheck-85820.cloudfunctions.net/getLocationData";
+        const REQ_LOCATION_URL  = "https://us-central1-wellcheck-85820.cloudfunctions.net/requestLiveLocation";
+
+        const params = new URLSearchParams(window.location.search);
+        const token  = params.get("token");
+
+        let pollInterval = null;
+        let pollDeadline = null;
+        let lastLiveTimestamp = null;
+
+        function mapsUrl(lat, lng) {
+            return `https://maps.google.com/?q=${lat},${lng}`;
+        }
+
+        function formatTime(iso) {
+            if (!iso) return "";
+            const d = new Date(iso);
+            return d.toLocaleString("en-US", {
+                month: "short", day: "numeric",
+                hour: "numeric", minute: "2-digit"
+            });
+        }
+
+        function minutesAgo(iso) {
+            if (!iso) return null;
+            const diff = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+            if (diff < 1) return "just now";
+            if (diff === 1) return "1 min ago";
+            if (diff < 60) return `${diff} min ago`;
+            const h = Math.floor(diff / 60);
+            return h === 1 ? "1 hr ago" : `${h} hrs ago`;
+        }
+
+        function showError(title, body) {
+            document.getElementById("loading-view").style.display = "none";
+            document.getElementById("main-view").style.display   = "none";
+            document.getElementById("error-view").style.display  = "";
+            document.getElementById("error-title").textContent = title;
+            document.getElementById("error-body").textContent  = body;
+        }
+
+        function renderCheckIn(data) {
+            const el = document.getElementById("checkin-content");
+            if (!data.lastCheckInLat || !data.lastCheckInLng) {
+                el.innerHTML = `<p class="no-location">No location was recorded at their last check-in. Location sharing may be disabled.</p>`;
+                return;
+            }
+            const ago = minutesAgo(data.lastCheckInTime);
+            el.innerHTML = `
+                <div class="location-row">
+                    <div class="location-text">
+                        <strong>${data.lastCheckInTime ? formatTime(data.lastCheckInTime) : "Unknown time"}</strong>
+                        ${ago ? `<span class="badge badge-old">${ago}</span>` : ""}
+                    </div>
+                    <a class="map-btn" href="${mapsUrl(data.lastCheckInLat, data.lastCheckInLng)}" target="_blank">
+                        ↗ View on Maps
+                    </a>
+                </div>`;
+        }
+
+        function renderLive(data) {
+            const el = document.getElementById("live-content");
+            if (!data.liveLocationLat || !data.liveLocationLng) return;
+            const ago = minutesAgo(data.liveLocationUpdatedAt);
+            el.innerHTML = `
+                <div class="location-row" style="margin-bottom:1rem;">
+                    <div class="location-text">
+                        <strong>${data.liveLocationUpdatedAt ? formatTime(data.liveLocationUpdatedAt) : "Just now"}</strong>
+                        ${ago ? `<span class="badge badge-fresh">${ago}</span>` : ""}
+                    </div>
+                    <a class="map-btn" href="${mapsUrl(data.liveLocationLat, data.liveLocationLng)}" target="_blank">
+                        ↗ View on Maps
+                    </a>
+                </div>`;
+        }
+
+        async function loadLocationData() {
+            try {
+                const r = await fetch(`${GET_LOCATION_URL}?token=${encodeURIComponent(token)}`);
+                if (r.status === 404) { showError("Link not found", "This location link is invalid."); return; }
+                if (r.status === 410) { showError("Link expired", "This location link has expired. Links are valid for 24 hours after the alert is sent."); return; }
+                if (!r.ok) { showError("Something went wrong", "Could not load location data. Please try again."); return; }
+
+                const data = await r.json();
+                document.getElementById("loading-view").style.display = "none";
+                document.getElementById("main-view").style.display   = "";
+
+                renderCheckIn(data);
+                renderLive(data);
+
+                if (data.liveLocationUpdatedAt) {
+                    lastLiveTimestamp = data.liveLocationUpdatedAt;
+                }
+            } catch (e) {
+                showError("Network error", "Could not reach WellCheck servers. Check your connection and refresh.");
+            }
+        }
+
+        async function requestLiveLocation() {
+            const btn    = document.getElementById("ping-btn");
+            const status = document.getElementById("ping-status");
+
+            btn.disabled = true;
+            status.innerHTML = `<div class="spinner"></div> Sending request to their phone…`;
+
+            try {
+                const r = await fetch(REQ_LOCATION_URL, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({token}),
+                });
+
+                const data = await r.json();
+
+                if (!r.ok || data.success === false) {
+                    const msg = data.reason === "no_fcm_token"
+                        ? "Their phone hasn't connected to WellCheck's servers yet."
+                        : "Could not reach their phone. It may be off or out of service.";
+                    status.innerHTML = `<span style="color:#ff6b6b;">⚠️ ${msg}</span>`;
+                    btn.disabled = false;
+                    return;
+                }
+
+                status.innerHTML = `<div class="spinner"></div> Waiting for their phone to respond…`;
+                startPolling();
+
+            } catch (e) {
+                status.innerHTML = `<span style="color:#ff6b6b;">⚠️ Network error — check your connection.</span>`;
+                btn.disabled = false;
+            }
+        }
+
+        function startPolling() {
+            if (pollInterval) clearInterval(pollInterval);
+            pollDeadline = Date.now() + 60000; // 60s timeout
+
+            pollInterval = setInterval(async () => {
+                if (Date.now() > pollDeadline) {
+                    stopPolling();
+                    document.getElementById("ping-status").innerHTML =
+                        `<span style="color:var(--text-secondary);">No response — their phone may be off or out of range. Try again later.</span>`;
+                    document.getElementById("ping-btn").disabled = false;
+                    return;
+                }
+
+                try {
+                    const r = await fetch(`${GET_LOCATION_URL}?token=${encodeURIComponent(token)}`);
+                    if (!r.ok) return;
+                    const data = await r.json();
+
+                    const newTimestamp = data.liveLocationUpdatedAt;
+                    if (newTimestamp && newTimestamp !== lastLiveTimestamp) {
+                        lastLiveTimestamp = newTimestamp;
+                        stopPolling();
+                        renderLive(data);
+                        document.getElementById("ping-status").innerHTML =
+                            `<span style="color:var(--accent-green);">✓ Location updated</span>`;
+                        document.getElementById("ping-btn").disabled = false;
+                        document.getElementById("ping-btn").textContent = "Refresh location";
+                    }
+                } catch (_) { /* ignore — keep polling */ }
+            }, 3000);
+        }
+
+        function stopPolling() {
+            if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+        }
+
+        if (!token) {
+            showError("Invalid link", "No location token found in this URL.");
+        } else {
+            loadLocationData();
+        }
+    </script>
+</body>
+</html>
